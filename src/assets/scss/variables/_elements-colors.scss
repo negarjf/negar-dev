@@ -1,0 +1,127 @@
+//-----------------------------------------------------------------
+// Elements colors variables
+//-----------------------------------------------------------------
+
+
+// Buttons
+//------------------------------------------------
+$buttons-colors: $colors-all !default;
+
+
+// Alerts
+//------------------------------------------------
+$alerts-colors: (
+    red:		$color-red,
+    orange:	    $color-orange,
+    green:		$color-green,
+    blue:		$color-blue,
+) !default;
+
+
+// Divider
+//------------------------------------------------
+$dividers-colors: (
+    gray:		$color-gray,
+) !default;
+
+
+// Forms
+//------------------------------------------------
+$forms-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Labels
+//------------------------------------------------
+$labels-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Panel
+//------------------------------------------------
+$panels-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Progress
+//------------------------------------------------
+$progresses-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Tables
+//------------------------------------------------
+$tables-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Tabs
+//------------------------------------------------
+$tabs-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+// Tiles
+//------------------------------------------------
+$tiles-colors: (
+    yellow:	    $color-yellow,
+    green:		$color-green,
+    teal:		$color-teal,
+    blue:		$color-blue,
+) !default;
+
+
+
+// Tooltips
+//------------------------------------------------
+$tooltips-colors: (
+    gray:		$color-gray,
+    white:		$color-white,
+) !default;
+
+
+// Socials
+//------------------------------------------------
+$socials-colors: (
+    'twitter':         #00aced,
+    'instagram':       #405de6,
+    'linkedin':        #007bb6,
+    'telegram':        #0088cc,
+    'aparat':          #E52A68,
+) !default;
+$socials: $socials-colors;
+
+
+// Colors loops
+//------------------------------------------------
+$c-colors: $colors-all !default;
+
+$bg-colors: $colors-all !default;
+
+$brdc-colors: $colors-all !default;
+
+$link-colors: $colors-all !default;
