@@ -19,22 +19,22 @@ $page-loading-color:        $color-secondary;
 //------------------------------------------------
 
 // Load fonts
-$load-font-vazir:           true;
+$load-font-vazir:           false;
 $load-font-iran-sans:       false;
-$load-font-iran-yekan:      true;
+$load-font-iran-yekan:      false;
 
 
 // Load icons
-$load-icon-yi:              true;
+$load-icon-yi:              false;
 $load-icon-md:              true;
-$load-icon-im:              true;
-$load-icon-fa:              true;
-$load-icon-br:              true;
+$load-icon-im:              false;
+$load-icon-fa:              false;
+$load-icon-br:              false;
 
 
 // Basic fonts
-$font-family:				'Roboto', sans-serif !default;
-$font-family-heading:		'Ubuntu', cursive !default;
+$font-family:				'Muli', sans-serif !default;
+$font-family-heading:		'Muli', cursive !default;
 $font-size:          		14px !default;
 $font-weight:        		$font-weight-normal !default;
 $line-height:        		1.5 !default;
