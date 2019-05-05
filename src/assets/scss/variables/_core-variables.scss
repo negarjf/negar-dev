@@ -1,0 +1,27 @@
+//-----------------------------------------------------------------
+// Core variables
+//-----------------------------------------------------------------
+
+// Typography
+//------------------------------------------------
+// Font weights
+$font-weight-ultralight:    100 !default;
+$font-weight-light:    	    300 !default;
+$font-weight-normal:        normal !default;
+$font-weight-medium:        500 !default;
+$font-weight-bold:          bold !default;
+$font-weight-black:         900 !default;
+$font-weight-extrablack:    950 !default;
+
+// Font families
+$font-family-vazir:         Vazir, Tahoma, Arial, sans-serif !default;
+$font-family-iran-yekan:    IranYekan, Tahoma, Arial, sans-serif !default;
+$font-family-iran-sans:     IranSans, Tahoma, Arial, sans-serif !default;
+$font-family-icon:		    'icomoon';
+
+// Load icons
+$load-icon-yi:              true;
+$load-icon-md:              false;
+$load-icon-im:              false;
+$load-icon-fa:              false;
+$load-icon-br:              false;

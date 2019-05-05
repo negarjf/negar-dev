@@ -1,0 +1,197 @@
+/*-----------------------------------------------------------------
+- Tile
+-----------------------------------------------------------------*/
+section.panel.tile{
+	position: relative;
+	overflow: hidden;
+
+	article{
+		padding: 25px 15px 25px;
+		position: relative;
+
+		h2{
+			font-size: rem(32);
+			line-height: 1;
+			color: $color-primary;
+			margin-top: 5px;
+		}
+		h5{
+			font-size: rem(14);
+			font-weight: $font-weight-light;
+			color: #777;
+		}
+		.tile-icon{
+			position: absolute;
+			left: -15px;
+			bottom: -10px;
+			font-size: rem(120);
+			color: $color-primary;
+			opacity: 0.15;
+		}
+	}
+
+    @if( is-active('tile', 'alt') ) {
+        &.alt {
+            article {
+                background: $color-primary;
+
+                h2 {
+                    color: #fff;
+                }
+
+                h5 {
+                    color: #eeeeee;
+                }
+
+                .tile-icon {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+
+	// With Icon
+    @if( is-active('tile', 'icons') ) {
+        &.with-icon {
+            article {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: -50%;
+                    width: 100%;
+                    height: 150%;
+                    border-radius: 50%;
+                    background: rgba(#c2cdd0, 0.1);
+                    transform: translateY(-50%);
+                    z-index: 50;
+                }
+            }
+
+            .tile-icon {
+                font-size: rem(36);
+                opacity: 1;
+                left: 25px;
+                bottom: 50%;
+                transform: translateY(50%);
+                z-index: 100;
+            }
+        }
+    }
+
+	// Corner icon
+    @if( is-active('tile', 'icons') ) {
+        &.corner-icon {
+            &:before {
+                content: '';
+                width: 120px;
+                height: 120px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: translate(-50%, -50%);
+                background: $color-primary;
+                z-index: 1;
+                border-radius: 50%;
+            }
+
+            .tile-icon {
+                font-size: rem(24);
+                opacity: 1;
+                position: absolute;
+                top: 11px;
+                left: 14px;
+                bottom: auto;
+                color: #fff !important;
+                z-index: 2;
+            }
+        }
+    }
+
+	// Vertical
+    @if( is-active('tile', 'vertical') ) {
+        &.vertical {
+            article {
+                text-align: center;
+                padding: 0 0 15px;
+
+                .tile-icon {
+                    display: inline-block;
+                    position: static;
+                    opacity: 1;
+                    font-size: rem(48);
+                    margin-bottom: 20px;
+                    width: 100%;
+                    padding: 25px 15px;
+                    background: #fafafa;
+                }
+            }
+        }
+    }
+
+
+	// With Progress
+	footer{
+		min-height: 0;
+		padding: 8px;
+	}
+
+	// Colors
+    @if( is-active('tile', 'colors') ) {
+        @each $color, $value in $tiles-colors{
+            &.#{$color}{
+                article{
+                    h2{
+                        color: $value;
+                    }
+                }
+                .tile-icon{
+                    color: $value;
+                }
+
+                @if( is-active('tile', 'alt') ) {
+                    &.alt {
+                        article {
+                            background: $value;
+
+                            h2 {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+
+                @if( is-active('tile', 'icons') ) {
+                    &.corner-icon {
+                        &:before {
+                            background: $value;
+                        }
+                    }
+                }
+
+                @if( is-active('tile', 'vertical') ) {
+                    &.vertical {
+                        article {
+                            .tile-icon {
+                                background: $value;
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                    @if( is-active('tile', 'alt') ) {
+                        &.vertical.alt {
+                            article {
+                                .tile-icon {
+                                    background: rgba(#000, 0.1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.bar.#{$color}{
+                border-right: 2px solid $value;
+            }
+        }
+    }
+}

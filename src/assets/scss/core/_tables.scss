@@ -1,0 +1,267 @@
+/*-----------------------------------------------------------------
+- Table
+-----------------------------------------------------------------*/
+.table-wrapper{
+    width: 100%;
+}
+table.table{
+	width: 100%;
+	max-width: 100%;
+	background: $table-bg;
+	text-align: $table-text-align;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-radius: $table-border-radius;
+	margin-bottom: $table-margin-bottom;
+	@include box;
+    border: 1px solid $table-head-border-color;
+
+	// Table Header & Footer
+	thead, tfoot{
+		background: $table-head-bg;
+
+		td, th{
+			color: $table-head-color;
+			border-top: 0;
+			border-bottom: 0;
+		}
+	}
+
+	thead{
+
+        .table-sort{
+            font-size: rem(11);
+            padding-left: 5px; /* rtl:{padding-right: 5px;} */
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.35s;
+            &:hover{
+                opacity: 1;
+            }
+
+            &.active{
+                color: $color-primary;
+            }
+        }
+        th, tr{
+            border-bottom: 1px solid $table-head-border-color;
+        }
+	}
+
+	tfoot{
+		border-top: 1px solid $table-head-border-color;
+	}
+
+	// Cell
+	td,th{
+		text-align: $table-text-align;
+		vertical-align: middle;
+		padding: 10px 8px;
+		border-top: $table-border;
+		font-size: $table-font-size;
+	}
+	th{
+		font-family: $table-head-font-family;
+		font-weight: $table-head-font-weight;
+	}
+	td{
+		color: $color-gray-dark;
+	}
+	.action-column{
+		width: 1px;
+		white-space: nowrap;
+
+		> a{
+			margin: 0 3px;
+
+			&:not(.button){
+				font-size: rem(16);
+				color: $color-gray;
+
+				&:hover{
+					color: $color-gray-dark;
+				}
+			}
+		}
+	}
+
+
+	//--------------------------------
+	// Bordered
+	//--------------------------------
+    @if( is-active('table', 'bordered') ) {
+        &.bordered {
+            border: 1px solid #d4e0e6;
+
+            thead th {
+                border-top: 0;
+                border-bottom: 0;
+
+                &:first-child {
+                    border-right: 0;
+                }
+
+                &:last-child {
+                    border-left: 0;
+                }
+            }
+
+            tbody {
+                td {
+                    &:first-child {
+                        //border-right: 0;
+                    }
+
+                    &:last-child {
+                        //border-left: 0;
+                    }
+                }
+            }
+
+            td, th {
+                border: 1px solid #e3eff5;
+            }
+        }
+    }
+
+
+	//--------------------------------
+	// Striped
+	//--------------------------------
+	&.striped{
+		> tbody{
+			> tr:nth-of-type(even){
+				background: $table-odd-bg;
+			}
+		}
+	}
+
+
+	//--------------------------------
+	// Hover
+	//--------------------------------
+	&.hover{
+		> tbody{
+			> tr:hover{
+				background: $table-odd-bg;
+			}
+		}
+	}
+
+
+	//--------------------------------
+	// Compact
+	//--------------------------------
+	&.compact{
+		td,th{
+			padding: 8px;
+		}
+	}
+
+
+	//--------------------------------
+	// Padded
+	//--------------------------------
+	&.padded{
+		td,th{
+			padding: 14px 12px;
+		}
+	}
+
+
+	//--------------------------------
+	// Colors
+	//--------------------------------
+	// Bar Colors: .bar-{color-name}
+    @if( is-active('table', 'colors') ) {
+        @each $color, $value in $tables-colors {
+            &.bar-#{$color} {
+                border-top: 3px solid $value;
+            }
+        }
+    }
+
+	// BG Color
+    @if( is-active('table', 'bg') ) {
+        @each $color, $value in $tables-colors{
+            &.#{$color}{
+                border-color: shade($value, 10%);
+
+                thead, tfoot{
+                    background: $value;
+                    border-color: shade($value, 10%);
+                }
+                tbody{
+                    background: tint($value, 15%);
+
+                    tr{
+                        border-color: tint($value, 5%);
+                    }
+                }
+
+                td, th{
+                    color: #ffffff;
+                    border-color: shade($value, 10%);
+
+                    a{
+                        color: #fff;
+                    }
+                    &.action-column{
+                        > a{
+                            &:not(.button){
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+
+                &.striped{
+                    tbody tr:nth-of-type(even){
+                        background: tint($value, 25%);
+                    }
+                }
+            }
+        }
+    }
+
+
+	// Row and Cell color
+	tr, th, td{
+        @if( is-active('table', 'colors') ) {
+            @each $color, $value in $tables-colors{
+                &.#{$color}{
+                    background: rgba($value, 0.15);
+                }
+            }
+        }
+	}
+
+
+	//--------------------------------
+	// Fixed
+	//--------------------------------
+	&.fixed{
+		table-layout: fixed;
+	}
+}
+
+
+//--------------------------------
+// Responsive
+//--------------------------------
+.table-responsive{
+	width: 100%;
+	overflow-y: hidden;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	border: $table-border;
+	margin-bottom: $table-margin-bottom;
+    @include box;
+
+	table.table{
+		background: #ffffff;
+		margin-bottom: 0;
+		border-right: 0;
+	}
+}
+
+// Todo: Check variables

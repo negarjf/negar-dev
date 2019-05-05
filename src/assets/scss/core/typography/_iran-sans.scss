@@ -1,0 +1,64 @@
+@if( $load-font-iran-sans == true ) {
+
+    /*-----------------------------------------------------------------
+    - Typography: IranSans
+    -----------------------------------------------------------------*/
+    $font-name: IranSans;
+    $current-font-directory: $font-directory + 'IranSans/';
+
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb.eot');
+        src: url($current-font-directory + 'IRANSansWeb.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb.ttf') format('truetype');
+        font-weight: $font-weight-normal;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb_Bold.eot');
+        src: url($current-font-directory + 'IRANSansWeb_Bold.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb_Bold.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb_Bold.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb_Bold.ttf') format('truetype');
+        font-weight: $font-weight-bold;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb_Black.eot');
+        src: url($current-font-directory + 'IRANSansWeb_Black.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb_Black.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb_Black.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb_Black.ttf') format('truetype');
+        font-weight: $font-weight-black;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb_Light.eot');
+        src: url($current-font-directory + 'IRANSansWeb_Light.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb_Light.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb_Light.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb_Light.ttf') format('truetype');
+        font-weight: $font-weight-light;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb_Medium.eot');
+        src: url($current-font-directory + 'IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb_Medium.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb_Medium.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb_Medium.ttf') format('truetype');
+        font-weight: $font-weight-medium;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'IRANSansWeb_UltraLight.eot');
+        src: url($current-font-directory + 'IRANSansWeb_UltraLight.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'IRANSansWeb_UltraLight.woff2') format('woff2'),
+        url($current-font-directory + 'IRANSansWeb_UltraLight.woff') format('woff'),
+        url($current-font-directory + 'IRANSansWeb_UltraLight.ttf') format('truetype');
+        font-weight: $font-weight-ultralight;
+    }
+
+}

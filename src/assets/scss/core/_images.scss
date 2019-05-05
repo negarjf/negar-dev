@@ -1,0 +1,30 @@
+/*-----------------------------------------------------------------
+- Images
+-----------------------------------------------------------------*/
+
+// Responsive
+.responsive {
+	max-width: 100%;
+	height: auto;
+}
+// Fluid
+.fluid {
+	@extend .responsive;
+	width: 100%;
+}
+
+// Rounded
+.rounded {
+	border-radius: $image-border-radius;
+}
+
+// Circular
+.circular {
+	border-radius: 50%;
+}
+
+// Thumbnail
+.thumbnail {
+	border: $image-thumb-border;
+	padding: $image-thumb-padding;
+}

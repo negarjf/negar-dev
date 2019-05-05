@@ -1,0 +1,539 @@
+/*-----------------------------------------------------------------
+- Colors
+-----------------------------------------------------------------*/
+.cl-n {
+	clear: none !important;
+}
+
+.cl-r {
+	clear: right !important;
+}
+
+.cl-l {
+	clear: left !important;
+}
+.clearfix {
+	@include clearfix;
+}
+
+//-----------------------------------------------------------------
+// Cursor
+//-----------------------------------------------------------------
+.cur-a {
+	cursor: auto !important;
+}
+
+.cur-d {
+	cursor: default !important;
+}
+
+.cur-ha {
+	cursor: hand !important;
+}
+
+.cur-he {
+	cursor: help !important;
+}
+
+.cur-m {
+	cursor: move !important;
+}
+
+.cur-p {
+	cursor: pointer !important;
+}
+
+.cur-t {
+	cursor: text !important;
+}
+
+//-----------------------------------------------------------------
+// Display and Visibility
+//-----------------------------------------------------------------
+.d-n {
+	display: none !important;
+}
+
+.d-i {
+	display: inline !important;
+}
+
+.d-b {
+	display: block !important;
+}
+
+.d-ib {
+	display: inline-block !important;
+}
+
+.d-t {
+	display: table !important;
+}
+
+.d-tc {
+	display: table-cell !important;
+}
+
+.d-f {
+	display: flex !important;
+}
+
+.d-if {
+	display: inline-flex !important;
+}
+
+.d-li {
+	display: list-item !important;
+}
+
+.v-v {
+	visibility: visible !important;
+}
+
+.v-h {
+	visibility: hidden !important;
+}
+
+.tl-f{
+	table-layout: fixed;
+}
+
+//-----------------------------------------------------------------
+// Float
+//-----------------------------------------------------------------
+.f-l {
+	float: left !important;
+}
+
+.f-r {
+	float: right !important;
+}
+
+.f-n {
+	float: none !important;
+}
+
+
+//--------------------------------
+// Margin
+//--------------------------------
+@include margin_generator(auto);
+
+@for $i from 0 through 10 {
+	@include margin_generator($i*5);
+}
+
+
+//--------------------------------
+// Padding
+//--------------------------------
+@include padding_generator(auto);
+
+@for $i from 0 through 10 {
+	@include padding_generator($i*5);
+}
+
+
+//-----------------------------------------------------------------
+// Overflow
+//-----------------------------------------------------------------
+.ov-v {
+	overflow: visible !important;
+}
+
+.ov-h {
+	overflow: hidden !important;
+}
+
+.ov-s {
+	overflow: scroll !important;
+}
+
+.ov-a {
+	overflow: auto !important;
+}
+
+.ov-v--x {
+	overflow-x: visible !important;
+}
+
+.ov-h--x {
+	overflow-x: hidden !important;
+}
+
+.ov-s--x {
+	overflow-x: scroll !important;
+}
+
+.ov-a--x {
+	overflow-x: auto !important;
+}
+
+.ov-v--y {
+	overflow-y: visible !important;
+}
+
+.ov-h--y {
+	overflow-y: hidden !important;
+}
+
+.ov-s--y {
+	overflow-y: scroll !important;
+}
+
+.ov-a--y {
+	overflow-y: auto !important;
+}
+
+//-----------------------------------------------------------------
+// Position
+//-----------------------------------------------------------------
+.pos-r {
+	position: relative !important;
+}
+
+.pos-a {
+	position: absolute !important;
+}
+
+.pos-s {
+	position: static !important;
+}
+
+.pos-f {
+	position: fixed !important;
+}
+
+.t-a {
+	top: auto !important;
+}
+
+.r-a {
+	right: auto !important;
+}
+
+.b-a {
+	bottom: auto !important;
+}
+
+.l-a {
+	left: auto !important;
+}
+
+//-----------------------------------------------------------------
+// Width
+//-----------------------------------------------------------------
+.w-a {
+	width: auto !important;
+}
+.w-100 {
+	width: 100% !important;
+}
+
+//-----------------------------------------------------------------
+// Height
+//-----------------------------------------------------------------
+.h-a {
+	height: auto !important;
+}
+.h-100 {
+	height: 100% !important;
+}
+
+//-----------------------------------------------------------------
+// Font
+//-----------------------------------------------------------------
+.fz-xxl{
+	font-size: xx-large;
+}
+.fz-xl{
+	font-size: x-large;
+}
+.fz-lgr{
+	font-size: larger;
+}
+.fz-lg{
+	font-size: large;
+}
+.fz-md{
+	font-size: medium;
+}
+.fz-sm{
+	font-size: small;
+}
+.fz-smr{
+	font-size: smaller;
+}
+.fz-xs{
+	font-size: x-small;
+}
+.fz-xxs{
+	font-size: xx-small;
+}
+.fw-n {
+	font-weight: normal !important;
+}
+
+.fw-lr {
+	font-weight: lighter !important;
+}
+
+.fw-b {
+	font-weight: bold !important;
+}
+
+.fw-br {
+	font-weight: bolder !important;
+}
+
+.fs-i {
+	font-style: italic !important;
+}
+
+.fs-n {
+	font-style: normal !important;
+}
+
+//-----------------------------------------------------------------
+// Text
+//-----------------------------------------------------------------
+.dir-rtl, .rtl{
+	direction: rtl !important;
+}
+.dir-ltr, .ltr{
+	direction: ltr !important;
+}
+.reverse-dir{
+    direction: $direction-reverse !important;
+    text-align: $right;
+}
+.va-t {
+	vertical-align: top !important;
+}
+
+.va-sup {
+	vertical-align: super !important;
+}
+
+.va-tt {
+	vertical-align: text-top !important;
+}
+
+.va-m {
+	vertical-align: middle !important;
+}
+
+.va-bl {
+	vertical-align: baseline !important;
+}
+
+.va-tb {
+	vertical-align: text-bottom !important;
+}
+
+.va-sub {
+	vertical-align: sub !important;
+}
+
+.ta-l {
+	text-align: left !important;
+}
+
+.ta-r {
+	text-align: right !important;
+}
+
+.ta-c {
+	text-align: center !important;
+}
+
+.ta-j {
+	text-align: justify !important;
+}
+
+.td-n {
+	text-decoration: none !important;
+}
+
+.td-u {
+	text-decoration: underline !important;
+}
+
+.td-o {
+	text-decoration: overline !important;
+}
+
+.td-l {
+	text-decoration: line-through !important;
+}
+
+.tsh {
+	text-shadow: none !important;
+}
+
+.lh-n {
+	line-height: normal !important;
+}
+
+.whs-n {
+	white-space: normal !important;
+}
+
+.whs-p {
+	white-space: pre !important;
+}
+
+.whs-nw {
+	white-space: nowrap !important;
+}
+
+.whs-pw {
+	white-space: pre-wrap !important;
+}
+
+.whs-pl {
+	white-space: pre-line !important;
+}
+
+//-----------------------------------------------------------------
+// Background
+//-----------------------------------------------------------------
+.bg-n {
+	background: none !important;
+}
+
+.bgc-t {
+	background-color: transparent !important;
+}
+
+.bgi-n {
+	background-image: none !important;
+}
+
+.bgr-n {
+	background-repeat: no-repeat !important;
+}
+
+.bgr-x {
+	background-repeat: repeat-x !important;
+}
+
+.bgr-y {
+	background-repeat: repeat-y !important;
+}
+
+.bgsz-a {
+	background-size: auto !important;
+}
+
+.bgsz-c {
+	background-size: cover !important;
+}
+
+
+//-----------------------------------------------------------------
+// Opacity
+//-----------------------------------------------------------------
+.op-0 {
+	opacity: 0 !important;
+}
+.op-1 {
+	opacity: 1 !important;
+}
+
+//-----------------------------------------------------------------
+// Border
+//-----------------------------------------------------------------
+.bd-n {
+	border: none !important;
+}
+
+.bd-t-n {
+	border-top: none !important;
+}
+
+.bd-r-n {
+	border-right: none !important;
+}
+
+.bd-b-n {
+	border-bottom: none !important;
+}
+
+.bd-l-n {
+	border-left: none !important;
+}
+
+.bdi-n {
+	border-image: none !important;
+}
+
+.bds-n {
+	border-style: none !important;
+}
+
+.bds-h {
+	border-style: hidden !important;
+}
+
+.bds-dt {
+	border-style: dotted !important;
+}
+
+.bds-ds {
+	border-style: dashed !important;
+}
+
+.bds-s {
+	border-style: solid !important;
+}
+
+.bds-db {
+	border-style: double !important;
+}
+
+//-----------------------------------------------------------------
+// List
+//-----------------------------------------------------------------
+.lis-n {
+	list-style: none !important;
+}
+
+.lisp-i {
+	list-style-position: inside !important;
+}
+
+.lisp-o {
+	list-style-position: outside !important;
+}
+
+.list-n {
+	list-style-type: none !important;
+}
+
+.list-d {
+	list-style-type: disc !important;
+}
+
+.list-c {
+	list-style-type: circle !important;
+}
+
+.list-s {
+	list-style-type: square !important;
+}
+
+.list-dc {
+	list-style-type: decimal !important;
+}
+
+// Responsive
+//------------------------------------------------
+@include bp{
+	.xs-hide{
+		display: none !important;
+	}
+	.xs-show{
+		display: block !important;
+	}
+}

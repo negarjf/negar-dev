@@ -1,0 +1,139 @@
+/*-----------------------------------------------------------------
+- Tooltip
+-----------------------------------------------------------------*/
+[data-tooltip]{
+	display: inline-block;
+	position: relative;
+
+	&:before{
+		content: attr(data-tooltip);
+		position: absolute;
+		padding: 5px 8px;
+		font-size: rem(11);
+		font-weight: $font-weight-light;
+		background: $color-gray-dark;
+		color: #ffffff;
+		border-radius: $border-radius;
+		user-select: none;
+		pointer-events: none;
+		cursor: default;
+		white-space: nowrap;
+		opacity: 0;
+		visibility: hidden;
+		transition: $link-transition;
+		z-index: 1;
+	}
+	&:after {
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		border-color: transparent;
+		border-width: 5px;
+		user-select: none;
+		opacity: 0;
+		visibility: hidden;
+		transition: $link-transition;
+		z-index: 1;
+	}
+
+	&:hover{
+		&:before, &:after{
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	// Without position or top
+	&:not([data-position]),  &[data-position="top"]{
+		&:before{
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%, -10px);
+		}
+		&:after{
+			bottom: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border-top-color: $color-gray-dark;
+		}
+	}
+
+	// Bottom
+	&[data-position="bottom"]{
+		&:before{
+			top: 100%;
+			left: 50%;
+			transform: translate(-50%, 10px);
+		}
+		&:after{
+			top: 100%;
+			left: 50%;
+			transform: translateX(-50%);
+			border-bottom-color: $color-gray-dark;
+		}
+	}
+
+	// Right
+	&[data-position="right"]{
+		&:before{
+			left: 100%;
+			top: 50%;
+			transform: translate(10px, -50%);
+		}
+		&:after{
+			left: 100%;
+			bottom: 50%;
+			transform: translateY(50%);
+			border-right-color: $color-gray-dark;
+		}
+	}
+
+	&[data-position="left"]{
+		&:before{
+			right: 100%;
+			top: 50%;
+			transform: translate(-10px, -50%);
+		}
+		&:after{
+			right: 100%;
+			bottom: 50%;
+			border-left-color: $color-gray-dark;
+			transform: translateY(50%);
+		}
+	}
+
+	// Colors
+    @if( is-active('tooltip', 'colors') ) {
+        @each $color, $value in $tooltips-colors {
+            &[data-color="#{$color}"] {
+                &:before {
+                    background: $value;
+                    @if (lightness($value) > 80) {
+                        color: $button-color;
+                    } @else {
+                        color: #fff;
+                    }
+                }
+
+                &:not([data-position]):after, &[data-position="top"]:after {
+                    border-top-color: $value;
+                }
+
+                &[data-position="bottom"]:after {
+                    border-bottom-color: $value;
+                }
+
+                &[data-position="right"]:after {
+                    border-right-color: $value;
+                }
+
+                &[data-position="left"]:after {
+                    border-left-color: $value;
+                }
+            }
+        }
+    }
+}

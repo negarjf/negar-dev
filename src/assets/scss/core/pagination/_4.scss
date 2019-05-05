@@ -1,0 +1,14 @@
+/*-----------------------------------------------------------------
+- Pagination > 4
+-----------------------------------------------------------------*/
+&.pagination-4{
+  li{
+    display: none;
+    &:first-child{
+      display: inline-block !important;
+    }
+    &:last-child{
+      display: inline-block !important;
+    }
+  }
+}

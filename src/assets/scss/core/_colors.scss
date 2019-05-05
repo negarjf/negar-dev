@@ -1,0 +1,43 @@
+/*-----------------------------------------------------------------
+- Colors
+-----------------------------------------------------------------*/
+// Color
+@each $color, $value in $c-colors{
+    .color-#{$color}{
+        color: $value !important;
+    }
+    .hover-color-#{$color}:hover{
+        color: $value !important;
+    }
+}
+
+// Background
+@each $color, $value in $bg-colors{
+    .bg-#{$color}{
+        background-color: $value !important;
+    }
+    .hover-bg-#{$color}:hover{
+        background-color: $value !important;
+    }
+}
+
+// Border color
+@each $color, $value in $brdc-colors{
+    .brdc-#{$color}{
+        border-color: $value !important;
+    }
+    .hover-brdc-#{$color}:hover{
+        border-color: $value !important;
+    }
+}
+
+// Link color
+@each $color, $value in $link-colors{
+    .link-#{$color}{
+        color: $value !important;
+
+        &:hover{
+            color: lighten($value, 10%) !important;
+        }
+    }
+}

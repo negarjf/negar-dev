@@ -1,0 +1,449 @@
+//-----------------------------------------------------------------
+// Effects
+//-----------------------------------------------------------------
+
+// overlay
+//------------------------------------------------
+@mixin overlay($bg: rgba(#000, 0.8), $z-index: 1){
+	content: '';
+	display: block;
+	transition: $transition-effects;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: $bg;
+	z-index: $z-index;
+}
+
+// Fade
+//------------------------------------------------
+@mixin effectFade($active: false, $fadeIn: 0, $fadeOut: 1){
+
+	@if( $active == false ){
+		opacity: $fadeIn;
+		visibility: hidden;
+	}
+	@else{
+		opacity: $fadeOut;
+		visibility: visible;
+	}
+}
+
+// Slide
+//------------------------------------------------
+@mixin effectSlide($active: false){
+	// Global settings for slide effects
+}
+@mixin effectSlideLeft($active: false){
+	@if( $active == false ){
+		left: -100%;
+	}
+	@else{
+		left: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideRight($active: false){
+	@if( $active == false ){
+		left: auto;
+		right: -100%;
+	}
+	@else{
+		right: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideTop($active: false){
+	@if( $active == false ){
+		top: -100%;
+	}
+	@else{
+		top: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideBottom($active: false){
+	@if( $active == false ){
+		top: auto;
+		bottom: -100%;
+	}
+	@else{
+		bottom: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideTopLeft($active: false){
+	@if( $active == false ){
+		top: -100%;
+		left: -100%;
+	}
+	@else{
+		top: 0;
+		left: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideBottomLeft($active: false){
+	@if( $active == false ){
+		top: auto;
+		bottom: -100%;
+		left: -100%;
+	}
+	@else{
+		bottom: 0;
+		left: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideTopRight($active: false){
+	@if( $active == false ){
+		top: -100%;
+		left: auto;
+		right: -100%;
+	}
+	@else{
+		top: 0;
+		right: 0;
+	}
+
+	@include effectSlide($active);
+}
+@mixin effectSlideBottomRight($active: false){
+	@if( $active == false ){
+		top: auto;
+		left: auto;
+		bottom: -100%;
+		right: -100%;
+	}
+	@else{
+		bottom: 0;
+		right: 0;
+	}
+
+	@include effectSlide($active);
+}
+
+// Flip
+//------------------------------------------------
+@mixin effectFlip($active: false){
+	transform-style: preserve-3d;
+}
+@mixin effectFlipX($active: false){
+	@if( $active == false ){
+		transform: rotateY(90deg);
+	}
+	@else{
+		transform: rotateY(0deg);
+	}
+
+	@include effectFlip($active);
+}
+@mixin effectFlipY($active: false){
+	@if( $active == false ){
+		transform: rotateX(90deg);
+	}
+	@else{
+		transform: rotateX(0deg);
+	}
+
+	@include effectFlip($active);
+}
+@mixin effectFlipLeft($active: false){
+	@if( $active == false ){
+		transform-origin: left center 0;
+		transform: perspective(600px) rotateY(90deg);
+	}
+	@else{
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+	@include effectFlip($active);
+}
+@mixin effectFlipRight($active: false){
+	@if( $active == false ){
+		transform-origin: right center 0;
+		transform: perspective(600px) rotateY(-90deg);
+	}
+	@else{
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+	@include effectFlip($active);
+}
+@mixin effectFlipTop($active: false){
+	@if( $active == false ){
+		transform-origin: center top 0;
+		transform: perspective(600px) rotateX(-90deg);
+	}
+	@else{
+		transform: perspective(600px) rotateX(0deg);
+	}
+
+	@include effectFlip($active);
+}
+@mixin effectFlipBottom($active: false){
+	@if( $active == false ){
+		transform-origin: center bottom 0;
+		transform: perspective(600px) rotateX(90deg);
+	}
+	@else{
+		transform: perspective(600px) rotateX(0deg);
+	}
+
+	@include effectFlip($active);
+}
+
+
+// Swirl
+//------------------------------------------------
+@mixin effectSwirl($active: false){
+	@if( $active == false ){
+		transform: rotate(180deg) scale(0);
+	}
+	@else{
+		transform: rotate(0deg) scale(1);
+	}
+}
+
+
+// Rotate
+//------------------------------------------------
+@mixin effectRotate($active: false){
+	@if( $active == false ){
+		transform: rotate(180deg);
+		transform-style: preserve-3D;
+	}
+	@else{
+		transform: rotate(0deg);
+	}
+}
+@mixin effectRotateTopLeft($active: false){
+	@if( $active == false ){
+		transform-origin: top left;
+	}
+
+	@include effectRotate($active);
+}
+@mixin effectRotateBottomLeft($active: false){
+	@if( $active == false ){
+		transform-origin: bottom left;
+	}
+
+	@include effectRotate($active);
+}
+@mixin effectRotateTopRight($active: false){
+	@if( $active == false ){
+		transform-origin: top right;
+	}
+
+	@include effectRotate($active);
+}
+@mixin effectRotateBottomRight($active: false){
+	@if( $active == false ){
+		transform-origin: bottom right;
+	}
+
+	@include effectRotate($active);
+}
+
+// ScaleSmall
+//------------------------------------------------
+@mixin effectZoomIn($zoom: 1.2){
+	transform: scale($zoom);
+}
+@mixin effectZoomOut($active: false, $zoom: 1.2){
+	@if( $active == false ){
+		transform: scale($zoom);
+	}
+	@else{
+		transform: scale($zoom);
+	}
+}
+@mixin effectZoomRotate($zoom: 1.4, $rotate: -10){
+	transform: rotate(#{$rotate}deg) scale($zoom);
+}
+
+// Load effects
+//------------------------------------------------
+@mixin effectsAll(){
+
+	// Slide
+	&.effect-slide-top{
+		@include effectSlideTop();
+
+		&.active{
+			@include effectSlideTop(true);
+		}
+	}
+	&.effect-slide-bottom{
+		@include effectSlideBottom();
+
+		&.active{
+			@include effectSlideBottom(true);
+		}
+	}
+	&.effect-slide-right{
+		@include effectSlideRight();
+
+		&.active{
+			@include effectSlideRight(true);
+		}
+	}
+	&.effect-slide-left{
+		@include effectSlideLeft();
+
+		&.active{
+			@include effectSlideLeft(true);
+		}
+	}
+	&.effect-slide-top-left{
+		@include effectSlideTopLeft();
+
+		&.active{
+			@include effectSlideTopLeft(true);
+		}
+	}
+	&.effect-slide-top-right{
+		@include effectSlideTopRight();
+
+		&.active{
+			@include effectSlideTopRight(true);
+		}
+	}
+	&.effect-slide-bottom-right{
+		@include effectSlideBottomRight();
+
+		&.active{
+			@include effectSlideBottomRight(true);
+		}
+	}
+	&.effect-slide-bottom-left{
+		@include effectSlideBottomLeft();
+
+		&.active{
+			@include effectSlideBottomLeft(true);
+		}
+	}
+
+	// Flip
+	&.effect-flip-x{
+		@include effectFlipX();
+
+		&.active{
+			@include effectFlipX(true);
+		}
+	}
+	&.effect-flip-y{
+		@include effectFlipY();
+
+		&.active{
+			@include effectFlipY(true);
+		}
+	}
+	&.effect-flip-top{
+		@include effectFlipTop();
+
+		&.active{
+			@include effectFlipTop(true);
+		}
+	}
+	&.effect-flip-bottom{
+		@include effectFlipBottom();
+
+		&.active{
+			@include effectFlipBottom(true);
+		}
+	}
+	&.effect-flip-right{
+		@include effectFlipRight();
+
+		&.active{
+			@include effectFlipRight(true);
+		}
+	}
+	&.effect-flip-left{
+		@include effectFlipLeft();
+
+		&.active{
+			@include effectFlipLeft(true);
+		}
+	}
+
+	// Swirl
+	&.effect-swirl{
+		@include effectSwirl();
+
+		&.active{
+			@include effectSwirl(true);
+		}
+	}
+
+	// Rotate
+	&.effect-rotate{
+		@include effectRotate();
+
+		&.active{
+			@include effectRotate(true);
+		}
+	}
+	&.effect-rotate-top-right{
+		@include effectRotateTopRight();
+
+		&.active{
+			@include effectRotateTopRight(true);
+		}
+	}
+	&.effect-rotate-top-left{
+		@include effectRotateTopLeft();
+
+		&.active{
+			@include effectRotateTopLeft(true);
+		}
+	}
+	&.effect-rotate-bottom-right{
+		@include effectRotateBottomRight();
+
+		&.active{
+			@include effectRotateBottomRight(true);
+		}
+	}
+	&.effect-rotate-bottom-left{
+		@include effectRotateBottomLeft();
+
+		&.active{
+			@include effectRotateBottomLeft(true);
+		}
+	}
+
+	// Zoom
+	&.effect-zoom-in{
+		@include effectZoomIn();
+
+		&.active{
+			@include effectZoomIn(true);
+		}
+	}
+	&.effect-zoom-out{
+		@include effectZoomOut();
+
+		&.active{
+			@include effectZoomOut(true);
+		}
+	}
+	&.effect-zoom-rotate{
+		@include effectZoomRotate();
+
+		&.active{
+			@include effectZoomRotate(true);
+		}
+	}
+
+}

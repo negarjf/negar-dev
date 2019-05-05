@@ -1,0 +1,64 @@
+@if( $load-font-vazir == true ) {
+
+    /*-----------------------------------------------------------------
+    - Typography: Vazir
+    -----------------------------------------------------------------*/
+    $font-name: Vazir;
+    $current-font-directory: $font-directory + 'Vazir/';
+
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir.eot');
+        src: url($current-font-directory + 'Vazir.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir.woff') format('woff'),
+        url($current-font-directory + 'Vazir.ttf') format('truetype');
+        font-weight: $font-weight-normal;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir-Bold.eot');
+        src: url($current-font-directory + 'Vazir-Bold.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir-Bold.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir-Bold.woff') format('woff'),
+        url($current-font-directory + 'Vazir-Bold.ttf') format('truetype');
+        font-weight: $font-weight-bold;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir-Black.eot');
+        src: url($current-font-directory + 'Vazir-Black.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir-Black.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir-Black.woff') format('woff'),
+        url($current-font-directory + 'Vazir-Black.ttf') format('truetype');
+        font-weight: $font-weight-black;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir-Light.eot');
+        src: url($current-font-directory + 'Vazir-Light.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir-Light.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir-Light.woff') format('woff'),
+        url($current-font-directory + 'Vazir-Light.ttf') format('truetype');
+        font-weight: $font-weight-light;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir-Medium.eot');
+        src: url($current-font-directory + 'Vazir-Medium.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir-Medium.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir-Medium.woff') format('woff'),
+        url($current-font-directory + 'Vazir-Medium.ttf') format('truetype');
+        font-weight: $font-weight-medium;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'Vazir-Thin.eot');
+        src: url($current-font-directory + 'Vazir-Thin.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'Vazir-Thin.woff2') format('woff2'),
+        url($current-font-directory + 'Vazir-Thin.woff') format('woff'),
+        url($current-font-directory + 'Vazir-Thin.ttf') format('truetype');
+        font-weight: $font-weight-ultralight;
+    }
+
+}

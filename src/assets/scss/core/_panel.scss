@@ -1,0 +1,311 @@
+/*-----------------------------------------------------------------
+- Panel
+-----------------------------------------------------------------*/
+.panel {
+	background: #fff;
+	margin-bottom: $panel-margin-bottom;
+	@include box;
+	border-radius: $panel-border-radius;
+
+	&:last-child {
+		margin-bottom: $panel-last-margin;
+	}
+
+	//--------------------------------
+	// Body
+	//--------------------------------
+    article {
+		padding: $panel-body-padding;
+		background: $panel-body-background;
+	}
+
+	//--------------------------------
+	// Header & Footer
+	//--------------------------------
+    @if( is-active('panel', 'heading') ) {
+        > header, footer {
+            padding: $panel-header-padding;
+            background: #fff;
+            position: relative;
+            min-height: $panel-header-min-height;
+            border: $panel-header-border;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &.dark {
+                background: $panel-header-bg;
+            }
+
+            .title {
+                display: block;
+                color: $panel-header-title-color;
+                font-family: $panel-header-title-font-family;
+                font-weight: $panel-header-title-font-weight;
+                margin: 0;
+
+                small {
+                    color: #999;
+                    font-size: 80%;
+                    margin-right: 2px;
+                }
+
+                #{$icon-selector} {
+                    display: inline-block;
+                    padding: $panel-header-icon-padding;
+                    margin-#{$left}: $panel-header-icon-margin;
+                    border-#{$left}: 1px solid $panel-header-border-color;
+                    font-size: $panel-header-icon-size;
+                    color: $panel-header-icon-color;
+                    vertical-align: middle;
+                }
+
+                a {
+                    border-bottom: 0;
+                    display: inline-block;
+                    font-family: inherit;
+                    font-weight: $panel-header-link-font-weight;
+                    font-size: $panel-header-link-font-weight;
+                }
+
+            }
+
+            // Sizes
+            &.lg {
+                height: 64px;
+            }
+        }
+
+        > header {
+            border-bottom-width: $panel-header-border-width;
+        }
+
+        footer {
+            border-top-width: $panel-header-border-width;
+        }
+
+        //--------------------------------
+        // Functions
+        //--------------------------------
+        > header,  footer{
+            position: relative;
+
+            .functions {
+
+                // Icon Functions
+                > a:not(.button) {
+                    font: $font-weight-normal rem(14)/1.4 $font-family-icon;
+                    color: #a3afb7;
+                    padding: 6px 3px;
+                    margin-right: 3px;
+                    float: left;
+
+                    &:hover {
+                        color: #526069;
+                    }
+
+                    &:last-child {
+                        margin-right: 15px;
+                    }
+
+                    &.panel-toggle{
+                        //@extend .icon-minus;
+                    }
+                }
+
+                // Label
+                .label{
+                    float: left;
+                    margin: 4px 3px;
+                }
+
+                // Buttons
+                > .button-group, > button, > .button, .dropdown{
+                    float: left;
+                    margin: 1px 4px 0 0;
+                }
+
+                > .button-group{
+                    button, .button{
+                        float: right;
+                    }
+                }
+
+                .button-group, .button{
+                    //box-shadow: none;
+                }
+                .button{
+                    &:active{
+                        box-shadow: $button-shadow-active;
+                    }
+                }
+
+                // Search
+                .field{
+                    float: left;
+                    margin: 0;
+                }
+
+                // Progress Bar
+                .progress{
+                    float: left;
+                    width: 120px;
+                    margin: 7px 4px 0 0;
+                }
+
+                .switch{
+                    float: left;
+                    margin-top: 3px;
+
+                    &.xs{
+                        margin-top: 9px;
+                    }
+                    &.sm{
+                        margin-top: 6px;
+                    }
+                }
+
+                // Right functions
+                &.right{
+                    left: auto;
+                    right: 10px;
+
+                    > .button, > a, .label, .field, > .button-group, .progress, .switch{
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+	//--------------------------------
+	// Color
+	//--------------------------------
+    @if( is-active('panel', 'colors') ){
+        @each $color, $value in $panels-colors{
+            &.#{$color}{
+                > header{
+                    background: lighten($value, 5%);
+
+                    .title{
+                        color: #ffffff;
+
+                        #{$icon-selector} {
+                            color: #eeeeee;
+                        }
+                        small{
+                            color: #eeeeee;
+                        }
+                    }
+                    .functions{
+                        a{
+                            color: #eee;
+
+                            &:hover{
+                                color: #ffffff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @if( is-active('panel', 'bar') ) {
+                &.bar-#{$color} {
+                    border-top: 3px solid $value;
+
+                    > header {
+                        .title {
+                            #{$icon-selector} {
+                                color: $value;
+                            }
+                        }
+                    }
+                }
+            }
+
+            @if( is-active('panel', 'fill') ) {
+                &.fill-#{$color} {
+                    > header, footer {
+                        background: darken($value, 5%);
+                        color: #ffffff;
+                        border-color: darken($value, 10%);
+
+                        .title {
+                            color: #ffffff;
+
+                            small, #{$icon-selector} {
+                                color: #ffffff;
+                            }
+                        }
+                    }
+
+                    article {
+                        background: $value;
+                        color: #ffffff;
+
+                        p {
+                            color: #fff;
+                        }
+
+                        a {
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+	//--------------------------------
+	// Closed
+	//--------------------------------
+	&.closed {
+		header {
+			border-bottom-color: transparent;
+            .functions {
+                > a {
+                    &.panel-toggle {
+                        &:not(.button){
+                            //@extend .icon-plus;
+                        }
+                    }
+                }
+            }
+		}
+		article, footer {
+			//display: none;
+		}
+	}
+
+	//--------------------------------
+	// Small
+	//--------------------------------
+    @if( is-active('panel', 'sm') ) {
+        &.sm {
+            > header, footer {
+                min-height: 1px;
+                padding: 4px 12px 4px 10px;
+
+                .functions {
+                    left: 7px;
+
+                    a {
+                        font-size: rem(12);
+                    }
+                }
+            }
+        }
+    }
+
+    @if( is-active('panel', 'lg') ) {
+        &.lg {
+            > header, footer {
+                min-height: 64px;
+                padding: 19px 21px 19px 19px;
+            }
+        }
+    }
+
+}
+
+// Todo: Variables

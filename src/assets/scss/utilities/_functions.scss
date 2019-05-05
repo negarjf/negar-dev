@@ -1,0 +1,113 @@
+//-----------------------------------------------------------------
+// Functions
+//-----------------------------------------------------------------
+
+//--------------------------------
+// Convert px to rem
+//--------------------------------
+@function rem($size) {
+
+    @if ( $size == 0 or $size == 'auto' ) {
+        @return $size;
+    }
+
+    $remSize: $size / 16;
+    @return #{$remSize}rem;
+}
+
+//--------------------------------
+// Convert value to px
+//--------------------------------
+@function px($size){
+    @if ($size == 0) {
+        @return 0;
+    }
+
+    @return #{$size}px;
+}
+
+//--------------------------------
+// Map deep get
+//--------------------------------
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+// Tint: Mix color with white
+//------------------------------------------------
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+// Shade: Mix color with black
+//------------------------------------------------
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+// Make darker or lighter color
+//------------------------------------------------
+@function color($color, $tone, $percent:false){
+
+	$tones: (
+		 lightest:		40%,
+		 lighter:		20%,
+		 light:			10%,
+		 dark:			10%,
+		 darker:		20%,
+		 darkest:		30%,
+	);
+
+	@if map-has-key($colors, $color) {
+
+		$color: map-get($colors, $color);
+
+	}
+
+	@if( map-has-key($tones, $tone) ){
+
+		@if $percent == false{
+			$percent: map-get($tones, $tone);
+		}
+
+		@if $tone == dark or $tone == darker or $tone == darkest{
+			$color: darken($color, $percent);
+		}
+		@else{
+			$color: lighten($color, $percent);
+		}
+
+		@return $color;
+
+	}
+	@else{
+		@warn "unknown tone `#{$tone}` in color";
+		@return null;
+	}
+
+}
+
+// Calculate button padding
+//------------------------------------------------
+@function button_height($size: ''){
+
+	$height: 0;
+
+	@if $size == xs {
+		$height: $button-xs-font-size + ($button-xs-padding-y * 2)
+	} @else if $size == sm {
+		$height: $button-sm-font-size + ($button-sm-padding-y * 2)
+	} @else if $size == lg {
+		$height: $button-lg-font-size + ($button-lg-padding-y * 2)
+	} @else if $size == xlg {
+		$height: $button-xlg-font-size + ($button-xlg-padding-y * 2)
+	} @else {
+		$height: $button-font-size + ($button-padding-y * 2)
+	}
+
+	@return $height + 2;
+
+}
