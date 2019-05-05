@@ -5,18 +5,19 @@
 // Colors
 //------------------------------------------------
 $color-red:                 #ff4d4f      !default;
+$color-pink:                #f54ea2      !default;
 $color-orange:              #fda12e      !default;
-$color-yellow:              #d8b21b      !default;
+$color-yellow:              #ffdd65      !default;
 $color-green:               #21ba45      !default;
-$color-teal:                #1f9fc2      !default;
-$color-blue:                #1E88E5      !default;
-$color-purple:              #8362D6      !default;
+$color-teal:                #3fc1c9      !default;
+$color-blue:                #1d58ff      !default;
+$color-purple:              #41228d      !default;
 $color-brown:               #9F5232      !default;
-$color-gray:                #1b3356 	 !default;
+$color-gray:                #222222 	 !default;
 $color-white:               #ffffff 	 !default;
 
 $color-primary:				$color-gray;
-$color-secondary:			$color-orange;
+$color-secondary:			$color-pink;
 
 
 // Validation colors
@@ -31,13 +32,14 @@ $color-info:				$color-blue;
 // Backgrounds
 //------------------------------------------------
 $bg-primary:				#fff;
-$bg-secondary:				#f2f6fa;
+$bg-secondary:				#faf7f7;
 
 
 // Generate colors
 //------------------------------------------------
 $colors: (
 	 red:		$color-red,
+	 pink:		$color-pink,
 	 orange:	$color-orange,
 	 yellow:	$color-yellow,
 	 green:		$color-green,
@@ -56,6 +58,13 @@ $color-red-light: 			color(red, light);
 $color-red-dark: 			color(red, dark);
 $color-red-darker: 			color(red, darker);
 $color-red-darkest: 		color(red, darkest);
+
+$color-pink-lightest: 		color(pink, lightest);
+$color-pink-lighter: 		color(pink, lighter);
+$color-pink-light: 			color(pink, light);
+$color-pink-dark: 			color(pink, dark);
+$color-pink-darker: 	    color(pink, darker);
+$color-pink-darkest: 		color(pink, darkest);
 
 $color-orange-lightest: 	color(orange, lightest);
 $color-orange-lighter: 		color(orange, lighter);
@@ -122,6 +131,7 @@ $color-secondary-darkest: 	color($color-secondary, darkest);
 
 $colors-all: (
 	'red': $color-red, 'red-lightest': $color-red-lightest, 'red-lighter': $color-red-lighter, 'red-light': $color-red-light, 'red-dark': $color-red-dark, 'red-darker': $color-red-darker, 'red-darkest': $color-red-darkest,
+	'pink': $color-pink, 'pink-lightest': $color-pink-lightest, 'pink-lighter': $color-pink-lighter, 'pink-light': $color-pink-light, 'pink-dark': $color-pink-dark, 'pink-darker': $color-pink-darker, 'pink-darkest': $color-pink-darkest,
 	'orange': $color-orange, 'orange-lightest': $color-orange-lightest, 'orange-lighter': $color-orange-lighter, 'orange-light': $color-orange-light, 'orange-dark': $color-orange-dark, 'orange-darker': $color-orange-darker, 'orange-darkest': $color-orange-darkest,
 	'yellow': $color-yellow, 'yellow-lightest': $color-yellow-lightest, 'yellow-lighter': $color-yellow-lighter, 'yellow-light': $color-yellow-light, 'yellow-dark': $color-yellow-dark, 'yellow-darker': $color-yellow-darker, 'yellow-darkest': $color-yellow-darkest,
 	'green': $color-green, 'green-lightest': $color-green-lightest, 'green-lighter': $color-green-lighter, 'green-light': $color-green-light, 'green-dark': $color-green-dark, 'green-darker': $color-green-darker, 'green-darkest': $color-green-darkest,

@@ -42,7 +42,7 @@ $line-height:        		1.5 !default;
 // Link
 $link-color:                $color-primary !default;
 $link-decoration:           none !default;
-$link-hover-color:          darken($color-primary, 15%) !default;
+$link-hover-color:          $color-primary !default;
 $link-hover-decoration:     none !default;
 
 // Heading
@@ -53,7 +53,7 @@ $heading-line-height:       $line-height !default;
 $heading-margin-bottom:     15px !default;
 $heading-small-font-size:   80% !default;
 $heading-small-font-weight: $font-weight-normal !default;
-$heading-small-color:       $color-gray !default;
+$heading-small-color:       $color-primary !default;
 $heading-small-line-height: $line-height !default;
 
 // Paragraph
@@ -105,11 +105,11 @@ $padding-xlg:					$padding-xlg-x $padding-xlg-y;
 
 // Border
 //------------------------------------------------
-$border-color:       	#e4e8ec;
-$border:             	1px solid $border-color;
-$border-light-color: 	#f0f2f5;
-$border-light: 			1px solid $border-light-color;
-$border-radius:      	3px;
+$border-color:       	#f6f6f6;
+$border:             	2px solid $border-color;
+$border-light-color: 	#f6f6f6;
+$border-light: 			2px solid $border-light-color;
+$border-radius:      	0px;
 
 
 
@@ -141,19 +141,19 @@ $height-lg: 				46px;
 // Buttons
 //------------------------------------------------
 $button-border-color:       #ddd;
-$button-border:             1px solid $button-border-color;
-$button-bg:                 #fafafa;
-$button-color:              #58666e;
-$button-font-weight:        $font-weight-normal;
+$button-border:             none;
+$button-bg:                 $color-secondary;
+$button-color:              #fff;
+$button-font-weight:        $font-weight-bold;
 $button-font-family:        inherit;
 $button-font-size:          14;
-$button-padding-y:          $padding-y;
-$button-padding-x:          $padding-x;
+$button-padding-y:          20px;
+$button-padding-x:          38px;
 $button-wide-add:			15;
 $button-wider-add:			35;
-$button-shadow:             inset rgba(#000, 0) 0px 3px 5px, 0 1px 1px rgba(90,90,90,0.1);
-$button-shadow-hover:       inset rgba(#000, 0) 0px 3px 5px, 0 1px 1px rgba(90,90,90,0.1);
-$button-shadow-active:      inset rgba(#000, 0.125) 0px 3px 5px, 0 2px 2px rgba(#000, 0);
+$button-shadow:             none;
+$button-shadow-hover:       none;
+$button-shadow-active:      none;
 $button-gradient:			linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.2));
 $button-gradient-hover:		linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.15));
 $button-gradient-active:	linear-gradient(to bottom, rgba(#000, 0.25), rgba(#000, 0));
@@ -231,19 +231,19 @@ $progress-font-size:        rem(12);
 // Forms
 //------------------------------------------------
 // Input
-$form-input-padding-y:				rem(8);
-$form-input-padding-x:				rem(8);
-$form-input-font-weight:    		$font-weight-normal;
-$form-input-font-size:      		rem(13);
-$form-input-line-height:    		inherit;
-$form-input-placeholder-color: 		#caccd3;
-$form-input-color:					#555;
+$form-input-padding-y:				rem(10);
+$form-input-padding-x:				rem(25);
+$form-input-font-weight:    		600;
+$form-input-font-size:      		rem(15);
+$form-input-line-height:    		1.6;
+$form-input-placeholder-color: 		#868686;
+$form-input-color:					$color-secondary;
 $form-input-focus-color:			#000;
 $form-input-bg:						#fff;
-$form-input-border-color:			#e6ecf5;
-$form-input-border:					1px solid $form-input-border-color;
-$form-input-border-hover-color:		darken($border-color, 10%);
-$form-input-border-focus-color:		$color-blue;
+$form-input-border-color:			#eeeeee;
+$form-input-border:					2px solid $form-input-border-color;
+$form-input-border-hover-color:		$form-input-border-color;
+$form-input-border-focus-color:		$color-secondary;
 $form-input-border-radius:			$border-radius;
 $form-input-error-color:			$color-red;
 $form-input-success-color:			$color-green;
@@ -264,7 +264,7 @@ $form-input-lg-padding-x:			rem(20);
 // Label
 $form-label-font-weight: 			$font-weight-light;
 $form-label-font-size: 				rem(13);
-$form-label-color: 					#666;
+$form-label-color: 					$color-primary;
 $form-label-margin-bottom: 			5px;
 
 // Checkbox
