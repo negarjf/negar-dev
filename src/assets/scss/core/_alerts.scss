@@ -1,0 +1,215 @@
+/*-----------------------------------------------------------------
+- Alerts
+-----------------------------------------------------------------*/
+.alert {
+    width: 100%;
+    background: $alert-bg;
+    border: 0;
+	border-radius: $alert-border-radius;
+	box-shadow: $alert-box-shadow;
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: $alert-margin-bottom;
+    position: relative;
+	font-weight: $alert-font-weight;
+	font-size: $alert-font-size;
+	font-family: inherit !important;
+
+	p{
+		font-weight: $alert-font-weight;
+		font-size: $alert-font-size;
+        color: inherit;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	a{
+		color: $color-primary;
+		border-bottom: 1px dotted $color-primary;
+	}
+	ul{
+		margin: 0;
+		padding-right: 30px;
+
+		li{
+			margin-bottom: 5px;
+
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+
+    &:after {
+        content: '';
+        height: calc(100% + 2px);
+        border-#{$right}: 4px solid $border-color;
+		border-radius: 0 $alert-border-radius $alert-border-radius 0;
+        position: absolute;
+        top: -1px;
+        #{$right}: -1px;
+        z-index: 800;
+    }
+
+	//--------------------------------
+	// Icon
+	//--------------------------------
+    @if( is-active('alert', 'icons') ) {
+        #{$icon-with-selector} {
+            padding-right: $alert-icon-width;
+            font-weight: $alert-font-weight;
+            font-size: $alert-font-size;
+            font-family: $font-family !important;
+
+            &:before {
+                width: $alert-icon-width;
+                text-align: center;
+                font: normal $alert-icon-font-size $font-family-icon;
+                line-height: $alert-icon-font-size;
+                color: $color-primary;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                margin-top: -2px;
+                z-index: 700;
+            }
+        }
+    }
+
+    //--------------------------------
+    // Alt and Colors
+    //--------------------------------
+    @if( is-active('alert', 'alt') ) {
+        &.alt {
+            background: $color-primary;
+            color: #ffffff;
+            border-color: transparent;
+
+            &:before {
+                border-color: darken($color-primary, 15%);
+                color: #ffffff;
+            }
+
+            &:after {
+                border-color: darken($color-primary, 15%);
+                height: 100%;
+                top: 0;
+                #{$right}: 0;
+            }
+
+            p, ul, li, h1, h2, h3, h4, h5, h6 {
+                color: #fff;
+            }
+
+            a {
+                color: #eeeeee;
+                border-bottom-color: #fff;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    @if( is-active('alert', 'colors') ) {
+        @each $color, $value in $alerts-colors{
+            &.#{$color}{
+                color: $value;
+
+                &:after{
+                    border-color: $value;
+                }
+                &:before{
+                    color: $value;
+                }
+                a{
+                    color: darken($value, 10%);
+                    border-bottom-color: $value;
+                }
+
+                @if( is-active('alert', 'alt') ) {
+                    &.alt {
+                        background: $value;
+                        color: #ffffff;
+
+                        &:before {
+                            border-color: darken($value, 15%);
+                            color: #ffffff;
+                        }
+
+                        &:after {
+                            border-color: darken($value, 15%);
+                        }
+
+                        a {
+                            color: #ffffff;
+                            border-bottom-color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //--------------------------------
+    // Compact
+    //--------------------------------
+	&.compact {
+		display: inline-block;
+		width: auto;
+	}
+
+    //--------------------------------
+    // Fixed
+    //--------------------------------
+	&.fixed{
+		display: inline-block;
+		width: auto;
+		position: fixed;
+		z-index: $z-index-front + 100;
+		margin-bottom: 0;
+
+		$positions: 'top', 'bottom', 'right', 'left';
+		@each $position in $positions{
+			&.#{$position}{
+				#{$position}: $alert-fixed-space;
+			}
+		}
+	}
+
+	//--------------------------------
+	// Close
+	//--------------------------------
+	.alert-close {
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1;
+		border: 0 !important;
+		opacity: 0.7;
+        cursor: pointer;
+
+		&:hover {
+			opacity: 1;
+		}
+	}
+
+	&.success{
+		@extend .alert.green;
+		background: #effff8;
+	}
+	&.danger{
+		@extend .alert.red;
+		background: #fff6f6;
+	}
+	&.warning{
+		@extend .alert.orange;
+		background: #FFF2E1;
+	}
+}
+
+// TODO: z-index?

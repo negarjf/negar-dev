@@ -1,0 +1,789 @@
+/*-----------------------------------------------------------------
+- Buttons
+-----------------------------------------------------------------*/
+#{$button-selector}{
+    cursor: pointer;
+    display: inline-block;
+    outline: 0;
+	height: auto;
+    border: $button-border;
+    vertical-align: middle;
+    background: $button-bg;
+    color: $button-color;
+	font-family: $button-font-family;
+    font-weight: $button-font-weight;
+    font-size: rem($button-font-size);
+    line-height: rem($button-font-size);
+    padding: $button-padding-y $button-padding-x;
+    text-transform: none;
+    text-shadow: none;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    border-radius: $button-border-radius;
+    box-shadow: $button-shadow;
+    user-select: none;
+    transition: $button-transition;
+    will-change: '';
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+    text-align: center;
+	position: relative;
+
+    //--------------------------------
+    // Hover, active, focus, disable
+    //--------------------------------
+    // Hover
+    &:hover {
+        background: darken($button-bg, 1%);
+        border-color: darken($button-border-color, 3%);
+		text-decoration: none;
+    }
+
+    // Active
+    &:active, &.active {
+        box-shadow: $button-shadow-active;
+    }
+
+    // Focus
+    &:focus, &.focus{
+        outline: 0;
+    }
+
+    // Disable
+    &:disabled, &.disabled {
+        opacity: $button-disabled-opacity;
+        cursor: $button-disabled-cursor;
+        pointer-events: none;
+        box-shadow: none;
+    }
+
+    //--------------------------------
+    // Colors
+    //--------------------------------
+    @if( is-active('button', 'colors') ){
+        @each $color, $value in $buttons-colors{
+            &.#{$color}{
+                background: $value;
+                border-color: darken($value, 5%);
+
+                @if (lightness($value) > 80) {
+                    color: $button-color;
+
+                    &:hover{
+                        background: darken($value, 3%);
+                    }
+                } @else {
+                    color: #fff;
+
+                    &:hover{
+                        background: darken($value, 8%);
+                    }
+                }
+            }
+        }
+    }
+
+	// Hover colors
+    @if( is-active('button', 'hover') ) {
+        @each $color, $value in $buttons-colors {
+            &.hover-#{$color}:hover {
+                background: $value;
+                border-color: darken($value, 5%);
+                color: #fff;
+            }
+        }
+    }
+
+    // Socials
+    @if( is-active('button', 'socials') ) {
+        @each $social, $value in $socials-colors{
+            &.#{$social}{
+                background: $value;
+                border-color: darken($value, 8%);
+                color: #ffffff;
+
+                &:hover{
+                    background: darken($value, 5%);
+                }
+            }
+        }
+    }
+
+    //--------------------------------
+    // Icons
+    //--------------------------------
+    @if( is-active('button', 'icons') ) {
+        #{$icon-with-selector} {
+            min-width: button_height();
+            font-family: $font-family-icon !important;
+            font-size: rem($button-icon-font-size);
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            line-height: rem($button-icon-font-size);
+        }
+
+        // With Icons
+        #{$icon-selector} {
+            display: inline-block;
+            font-size: inherit !important;
+            height: rem($button-icon-font-size - 2);
+            margin-#{$left}: $button-with-icon-margin;
+            position: relative;
+            top: -1px;
+            vertical-align: middle;
+        }
+
+        // Icon on reverse side
+        &.reverse {
+            #{$icon-selector} {
+                margin-#{$left}: 0;
+                margin-#{$right}: $button-with-icon-margin;
+            }
+        }
+    }
+
+	// Labeled
+    @if( is-active('button', 'icons') and is-active('button', 'labeled') ){
+        &.labeled{
+            position: relative;
+            padding-#{$right}: $button-padding-x + button_height();
+            overflow: hidden;
+
+            #{$icon-selector} {
+                @include absolute(top 0 right 0);
+                width: button_height();
+                height: 100% !important;
+                margin: 0;
+                background: rgba(0, 0, 0, 0.05);
+                border-left: 1px solid rgba(0, 0, 0, 0.05);
+
+                &:before{
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    text-align: center;
+                    transform: translateY(-50%);
+                }
+            }
+
+            &.#{$left}{
+                padding-#{$right}: $button-padding-x;
+                padding-#{$left}: $button-labeled-padding-y;
+
+                #{$icon-selector} {
+                    right: auto;
+                    left: 0;
+                    border-#{$left}: 0;
+                    border-#{$right}: 1px solid rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
+    }
+
+	// Gradient
+	//------------------------------------------------
+    @if( is-active('button', 'gradient') ) {
+        &.gradient {
+            background-image: $button-gradient;
+
+            &:hover {
+                background-image: $button-gradient-hover;
+            }
+
+            &:active {
+                background-image: $button-gradient-active;
+            }
+        }
+    }
+
+    //--------------------------------
+    // Alternative
+    //--------------------------------
+    @if( is-active('button', 'icons') ) {
+        &.alt{
+            background: none !important;
+            color: $button-color;
+            box-shadow: none;
+            border: 1px solid $color-gray-lightest;
+
+            @if( is-active('button', 'colors') ) {
+                @each $color, $value in $buttons-colors{
+                    &.#{$color}{
+                        border-color: $value;
+                        color: $value;
+
+                        &:hover{
+                            border-color: darken($value, 10%);
+                            color: darken($value, 10%);
+                        }
+                    }
+                }
+            }
+            @if( is-active('button', 'hover') ) {
+                @each $color, $value in $buttons-colors {
+                    &.hover-#{$color}:hover {
+                        border-color: $value;
+                        color: $value;
+                    }
+                }
+            }
+        }
+    }
+
+    //--------------------------------
+    // Inverted
+    //--------------------------------
+    @if( is-active('button', 'inverted') ) {
+        &.inverted{
+            background: none;
+            color: $button-color;
+            box-shadow: none;
+            border: 1px solid $color-gray-lightest;
+
+            &:hover{
+                color: #ffffff;
+                border-color: $button-color;
+                background: $button-color;
+            }
+
+            @if( is-active('button', 'colors') ) {
+                @each $color, $value in $buttons-colors{
+                    &.#{$color}{
+                        border-color: $value;
+                        @if (lightness($value) > 80) {
+                            color: darken($value, 30%);
+                        } @else {
+                            color: $value;
+                        }
+
+                        &:hover{
+                            @if (lightness($value) > 80) {
+                                color: darken($value, 30%);
+                            } @else {
+                                color: #fff;
+                            }
+                            background: $value;
+                        }
+                        &:active{
+                            background: darken($value, 5%);
+                        }
+                    }
+                }
+            }
+            @if( is-active('button', 'hover') ) {
+                @each $color, $value in $buttons-colors {
+                    &.hover-#{$color}:hover {
+                        @if (lightness($value) > 80) {
+                            color: darken($value, 30%);
+                        } @else {
+                            color: #fff;
+                        }
+                        border-color: $value;
+                        background: $value;
+                    }
+                }
+            }
+        }
+    }
+
+
+	//--------------------------------
+	// Circular
+	//--------------------------------
+	&.circular{
+		width: $button-height;
+		border-radius: 50%;
+		text-align: center !important;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+
+
+    //--------------------------------
+    // Block
+    //--------------------------------
+	&.block{
+		display: block;
+		width: 100%;
+
+		& + .button.block{
+			margin-top: 5px;
+		}
+	}
+
+
+	//--------------------------------
+	// Rounded
+	//--------------------------------
+	&.rounded{
+		border-radius: $button-height/2;
+	}
+
+	//--------------------------------
+	// Wide
+	//--------------------------------
+	&.wide{
+		padding: $button-padding-y $button-padding-x+$button-wide-add;
+	}
+	&.wider{
+		padding: $button-padding-y $button-padding-x+$button-wider-add;
+	}
+
+	//--------------------------------
+	// Loader
+	//--------------------------------
+    @if( is-active('button', 'loader') ) {
+        &.loader {
+            position: relative;
+            overflow: hidden;
+
+            &:after {
+                content: '';
+                width: 24px;
+                height: 24px;
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white"><path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="0.8s" repeatCount="indefinite" /></path></svg>');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: 24px;
+                display: inline-block;
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 10;
+                transition: $button-transition;
+                opacity: 0;
+                visibility: hidden;
+                -webkit-filter: hue-rotate(220deg) saturate(5);
+                filter: hue-rotate(220deg) saturate(5);
+            }
+
+            &:before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: inherit;
+                z-index: 8;
+                transition: $button-transition;
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            // Types
+            &.bubbles:after {
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white"><circle transform="translate(8 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle><circle transform="translate(16 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle><circle transform="translate(24 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle></svg>');
+            }
+
+            &.cylon:after {
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white"><path transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path><path opacity="0.5" transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0.1s" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path><path opacity="0.25" transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0.2s" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path></svg>');
+            }
+
+            &.spinning:after {
+                background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="white"><path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="0.8s" repeatCount="indefinite" /></path></svg>');
+            }
+
+            &.loader-light {
+                &:after {
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="gray"><path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="0.8s" repeatCount="indefinite" /></path></svg>');
+                }
+
+                // Types
+                &.bubbles:after {
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="gray"><circle transform="translate(8 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle><circle transform="translate(16 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.3" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle><circle transform="translate(24 0)" cx="0" cy="16" r="0"><animate attributeName="r" values="0; 4; 0; 0" dur="1.2s" repeatCount="indefinite" begin="0.6" keytimes="0;0.2;0.7;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8" calcMode="spline" /></circle></svg>');
+                }
+
+                &.cylon:after {
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="gray"><path transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path><path opacity="0.5" transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0.1s" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path><path opacity="0.25" transform="translate(0 0)" d="M0 12 V20 H4 V12z"><animateTransform attributeName="transform" type="translate" values="0 0; 28 0; 0 0; 0 0" dur="1.5s" begin="0.2s" repeatCount="indefinite" keytimes="0;0.3;0.6;1" keySplines="0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8;0.2 0.2 0.4 0.8" calcMode="spline" /></path></svg>');
+                }
+
+                &.spinning:after {
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="gray"><path opacity=".25" d="M16 0 A16 16 0 0 0 16 32 A16 16 0 0 0 16 0 M16 4 A12 12 0 0 1 16 28 A12 12 0 0 1 16 4"/><path d="M16 0 A16 16 0 0 1 32 16 L28 16 A12 12 0 0 0 16 4z"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="0.8s" repeatCount="indefinite" /></path></svg>');
+                }
+            }
+
+            &.loading {
+                cursor: default;
+                pointer-events: none;
+                opacity: 0.7;
+
+                &:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &:after {
+                    top: 50%;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    //--------------------------------
+    // Sizes
+    //--------------------------------
+    @if( is-active('button', 'xs') ) {
+        &.xs {
+            font-weight: $font-weight-medium;
+            font-size: rem($button-xs-font-size);
+            line-height: rem($button-xs-font-size);
+            padding: $button-xs-padding-y $button-xs-padding-x;
+
+            &.circular {
+                width: button_height(xs) !important;
+            }
+
+            &.rounded {
+                border-radius: button_height(xs);
+            }
+
+            #{$icon-selector} {
+                height: rem($button-xs-font-size - 2);
+                margin-left: $button-xs-with-icon-margin;
+            }
+
+            #{$icon-with-selector} {
+                min-width: button_height(xs);
+            }
+
+            &.labeled {
+                padding-#{$right}: $button-xs-padding-x + button_height(xs);
+
+                #{$icon-selector} {
+                    width: button_height(xs);
+                }
+            }
+
+            &.reverse {
+                #{$icon-selector} {
+                    margin-#{$left}: 0;
+                    margin-#{$right}: $button-xs-with-icon-margin;
+                }
+            }
+
+            &.wide {
+                padding: $button-xs-padding-y $button-xs-padding-x+$button-wide-add;
+            }
+
+            &.wider {
+                padding: $button-xs-padding-y $button-xs-padding-x+$button-wider-add;
+            }
+        }
+    }
+    @if( is-active('button', 'sm') ) {
+        &.sm {
+            font-size: rem($button-sm-font-size);
+            line-height: rem($button-sm-font-size);
+            padding: $button-sm-padding-y $button-sm-padding-x;
+
+            &.circular {
+                width: button_height(sm) !important;
+            }
+
+            &.rounded {
+                border-radius: button_height(sm);
+            }
+
+            #{$icon-selector} {
+                height: rem($button-sm-font-size - 2);
+                margin-left: $button-sm-with-icon-margin;
+            }
+
+            #{$icon-with-selector} {
+                min-width: button_height(sm);
+            }
+
+            &.labeled {
+                padding-#{$right}: $button-sm-padding-x + button_height(sm);
+
+                #{$icon-selector} {
+                    width: button_height(sm);
+                }
+            }
+
+            &.reverse {
+                #{$icon-selector} {
+                    margin-#{$left}: 0;
+                    margin-#{$right}: $button-sm-with-icon-margin;
+                }
+            }
+
+            &.wide {
+                padding: $button-sm-padding-y $button-sm-padding-x+$button-wide-add;
+            }
+
+            &.wider {
+                padding: $button-sm-padding-y $button-sm-padding-x+$button-wider-add;
+            }
+        }
+    }
+    @if( is-active('button', 'lg') ) {
+        &.lg {
+            font-size: rem($button-lg-font-size);
+            line-height: rem($button-lg-font-size);
+            padding: $button-lg-padding-y $button-lg-padding-x;
+
+            &.circular {
+                width: button_height(lg) !important;
+            }
+
+            &.rounded {
+                border-radius: button_height(lg);
+            }
+
+            #{$icon-selector} {
+                height: rem($button-lg-font-size - 2);
+                margin-left: $button-lg-with-icon-margin;
+            }
+
+            #{$icon-with-selector} {
+                min-width: button_height(lg);
+            }
+
+            &.labeled {
+                padding-#{$right}: $button-lg-padding-x + button_height(lg);
+
+                #{$icon-selector} {
+                    width: button_height(lg);
+                }
+            }
+
+            &.reverse {
+                #{$icon-selector} {
+                    margin-#{$left}: 0;
+                    margin-#{$right}: $button-lg-with-icon-margin;
+                }
+            }
+
+            &.wide {
+                padding: $button-lg-padding-y $button-lg-padding-x+$button-wide-add;
+            }
+
+            &.wider {
+                padding: $button-lg-padding-y $button-lg-padding-x+$button-wider-add;
+            }
+        }
+    }
+
+    @if( is-active('button', 'xlg') ) {
+        &.xlg {
+            font-size: rem($button-xlg-font-size);
+            line-height: rem($button-xlg-font-size);
+            padding: $button-xlg-padding-y $button-xlg-padding-x;
+
+            &.circular {
+                width: button_height(xlg) !important;
+            }
+
+            &.rounded {
+                border-radius: button_height(xlg);
+            }
+
+            #{$icon-selector} {
+                height: rem($button-xlg-font-size - 2);
+                margin-left: $button-xlg-with-icon-margin;
+            }
+
+            #{$icon-with-selector} {
+                min-width: button_height(xlg);
+            }
+
+            &.labeled {
+                padding-#{$right}: $button-xlg-padding-x + button_height(xlg);
+
+                #{$icon-selector} {
+                    width: button_height(xlg);
+                }
+            }
+
+            &.reverse {
+                #{$icon-selector} {
+                    margin-#{$left}: 0;
+                    margin-#{$right}: $button-xlg-with-icon-margin;
+                }
+            }
+
+            &.wide {
+                padding: $button-xlg-padding-y $button-xlg-padding-x+$button-wide-add;
+            }
+
+            &.wider {
+                padding: $button-xlg-padding-y $button-xlg-padding-x+$button-wider-add;
+            }
+        }
+    }
+	
+	// Effect
+	//------------------------------------------------
+    @if( is-active('button', 'hover-effects') ) {
+        &.visible-hidden {
+            overflow: hidden;
+            position: relative;
+
+            .content {
+                display: inline-block;
+                transition: $transition;
+
+                &.visible {
+                    position: relative;
+                }
+
+                &.hidden {
+                    width: 100%;
+                    position: absolute;
+                }
+
+                #{$icon-selector} {
+                    margin: 0;
+                    font-size: 140% !important;
+                    line-height: inherit;
+                }
+            }
+        }
+        &.hover-effect-1.visible-hidden {
+            .visible {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            .hidden {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0;
+            }
+
+            &:hover {
+                .visible {
+                    opacity: 0;
+                    transform: scale(0.5);
+                }
+
+                .hidden {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+        &.hover-effect-2.visible-hidden {
+            .visible {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            .hidden {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.5);
+                opacity: 0;
+            }
+
+            &:hover {
+                .visible {
+                    opacity: 0;
+                    transform: scale(1.5);
+                }
+
+                .hidden {
+                    opacity: 1;
+                    transform: translate(-50%, -50%) scale(1);
+                }
+            }
+        }
+        &.hover-effect-3.visible-hidden {
+            .visible {
+                right: 0;
+            }
+
+            .hidden {
+                transform: translateY(-50%);
+                top: 50%;
+                right: -100%;
+            }
+
+            &:hover {
+                .visible {
+                    right: 200%;
+                }
+
+                .hidden {
+                    right: 0;
+                }
+            }
+        }
+        &.hover-effect-4.visible-hidden {
+            .visible {
+                left: 0;
+            }
+
+            .hidden {
+                transform: translateY(-50%);
+                top: 50%;
+                left: -100%;
+            }
+
+            &:hover {
+                .visible {
+                    left: 200%;
+                }
+
+                .hidden {
+                    left: 0;
+                }
+            }
+        }
+        &.hover-effect-5.visible-hidden {
+            .visible {
+                transform: translateY(0);
+            }
+
+            .hidden {
+                transform: translate(-50%, 0);
+                top: -100%;
+                left: 50%;
+            }
+
+            &:hover {
+                .visible {
+                    transform: translateY(200%);
+                }
+
+                .hidden {
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                }
+            }
+        }
+        &.hover-effect-6.visible-hidden {
+            .visible {
+                transform: translateY(0);
+            }
+
+            .hidden {
+                transform: translate(-50%, 0);
+                bottom: -100%;
+                left: 50%;
+            }
+
+            &:hover {
+                .visible {
+                    transform: translateY(-200%);
+                }
+
+                .hidden {
+                    transform: translate(-50%, 50%);
+                    bottom: 50%;
+                }
+            }
+        }
+    }
+
+}
+
+// TODO: Labeled size fix, Loading(Ladda?), Components (Change color, text, icon), Animations

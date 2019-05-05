@@ -1,0 +1,64 @@
+/*-----------------------------------------------------------------
+- Pagination > 9
+-----------------------------------------------------------------*/
+&.pagination-9{
+  li{
+    @media (max-width: 767px) {
+      display: inline-block;
+    }
+    span{
+      border: 0;
+      &:hover{
+        background-color: unset;
+      }
+    }
+    a{
+      border: 0;
+      color: $pagination-text-color;
+      padding: 0 0 3px;
+      text-align: center;
+      position: relative;
+      margin: 1px 15px;
+
+      &:hover{
+        background-color: unset;
+      }
+    }
+    &:first-child,
+    &:last-child{
+      a{
+        display: none;
+        width: auto;
+        height: auto;
+        &:after{
+          background-color: unset;
+        }
+        &:hover{
+          background: unset;
+          color: $pagination-text-color-active;
+        }
+      }
+    }
+    &.disabled{
+      a{
+        color: $pagination-text-disable-color;
+      }
+    }
+    &.active{
+      a, span{
+        background-color: unset;
+        &:after{
+          content: '';
+          height: 3px;
+          width: 100%;
+          position: absolute;
+          background-color: $pagination-bg-active;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          top: 100%;
+        }
+      }
+    }
+  }
+}

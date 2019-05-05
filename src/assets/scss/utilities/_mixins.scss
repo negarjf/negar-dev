@@ -1,0 +1,227 @@
+//-----------------------------------------------------------------
+// Mixins
+//-----------------------------------------------------------------
+
+// Clearfix
+@mixin clearfix {
+    &:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+
+// Font Family
+@mixin font-family($name) {
+    @font-face {
+        font-family: 'icon-#{$name}';
+        src: url($font-icon-directory + '#{$name}/icon-#{$name}.eot');
+        src: url($font-icon-directory + '#{$name}/icon-#{$name}.eot') format("embedded-opentype"),
+             url($font-icon-directory + '#{$name}/icon-#{$name}.woff') format("woff"),
+             url($font-icon-directory + '#{$name}/icon-#{$name}.ttf') format("truetype"),
+             url($font-icon-directory + '#{$name}/icon-#{$name}.svg#fontawesome') format("svg");
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .icon{
+        &[class^="#{$name}-"], &[class*=" #{$name}-"] {
+            font-family: 'icon-#{$name}' !important;
+        }
+    }
+}
+
+// Media query
+@mixin bp($class: xs) {
+    @if $class == xs {
+        @media (max-width: (map_get($bp-sizes, 'sm')-1) + 'px') { @content; }
+    }
+
+    @else if $class == sm {
+        @media (min-width: map_get($bp-sizes, 'sm') + 'px') { @content; }
+    }
+
+    @else if $class == md {
+        @media (min-width: map_get($bp-sizes, 'md') + 'px') { @content; }
+    }
+
+    @else if $class == lg {
+        @media (min-width: map_get($bp-sizes, 'lg') + 'px') { @content; }
+    }
+
+    @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+}
+
+// Placeholder
+//------------------------------------------------
+@mixin input-placeholder {
+	&.placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+	&::-webkit-input-placeholder { @content; }
+}
+
+//-----------------------------------------------------------------
+// Make Grid
+//-----------------------------------------------------------------
+@mixin make-grid($size){
+
+    $list: '.col-#{$size}-1';
+
+    @for $i from 2 through $columns {
+        $list: "#{$list}, .col-#{$size}-#{$i}";
+    }
+
+    @if($size == 'xs'){
+        #{$list}{
+            float: $right;
+        }
+
+        @for $i from 1 through 12 {
+            .col-#{$size}-#{$i}{
+                @include grid-width($i);
+            }
+        }
+    } @else {
+        @include bp($size){
+            #{$list}{
+                float: $right;
+            }
+
+            @for $i from 1 through 12 {
+                .col-#{$size}-#{$i}{
+                    @include grid-width($i);
+                }
+            }
+        }
+    }
+}
+@mixin grid-width($i){
+    width: percentage(($i / $columns));
+}
+
+//-----------------------------------------------------------------
+// Box
+//-----------------------------------------------------------------
+@mixin box(){
+	background: $panel-body-background;
+	border: 0;
+	border-radius: $panel-border-radius;
+	box-shadow: $panel-box-shadow;
+}
+
+//-----------------------------------------------------------------
+// Margin Generator
+//-----------------------------------------------------------------
+@mixin margin_generator($value) {
+
+	.m#{$value}{
+		margin: rem($value)!important;
+	}
+
+    .mx#{$value}{
+        margin-right: rem($value)!important;
+        margin-left: rem($value)!important;
+    }
+
+    .my#{$value}{
+        margin-top: rem($value)!important;
+        margin-bottom: rem($value)!important;
+    }
+
+	.mt#{$value}{
+		margin-top: rem($value)!important;
+	}
+
+	.mr#{$value}{
+		margin-right: rem($value)!important;
+	}
+
+	.mb#{$value}{
+		margin-bottom: rem($value)!important;
+	}
+
+	.ml#{$value}{
+		margin-left: rem($value)!important;
+	}
+
+}
+
+
+
+//-----------------------------------------------------------------
+// Padding Generator
+//-----------------------------------------------------------------
+@mixin padding_generator($value) {
+
+	.p#{$value}{
+		padding: rem($value)!important;
+	}
+
+    .px#{$value}{
+        padding-right: rem($value)!important;
+        padding-left: rem($value)!important;
+    }
+
+    .py#{$value}{
+        padding-top: rem($value)!important;
+        padding-bottom: rem($value)!important;
+    }
+
+	.pt#{$value}{
+		padding-top: rem($value)!important;
+	}
+
+	.pr#{$value}{
+		padding-right: rem($value)!important;
+	}
+
+	.pb#{$value}{
+		padding-bottom: rem($value)!important;
+	}
+
+	.pl#{$value}{
+		padding-left: rem($value)!important;
+	}
+
+}
+
+// Triangle
+//------------------------------------------------
+@mixin triangle($direction, $size: 6px, $color: #222){
+	content: '';
+	display: block;
+	position: absolute;
+	height: 0; width: 0;
+	@if ($direction == 'up'){
+		border-bottom: $size solid $color;
+		border-left: 1/2*$size solid transparent;
+		border-right: 1/2*$size solid transparent;
+	}
+	@else if ($direction == 'down'){
+		border-top: $size solid $color;
+		border-left: 1/2*$size solid transparent;
+		border-right: 1/2*$size solid transparent;
+	}
+	@else if ($direction == 'left'){
+		border-top: 1/2*$size solid transparent;
+		border-bottom: 1/2*$size solid transparent;
+		border-right: $size solid $color;
+	}
+	@else if ($direction == 'right'){
+		border-top: 1/2*$size solid transparent;
+		border-bottom: 1/2*$size solid transparent;
+		border-left: $size solid $color;
+	}
+}
+
+// Imports
+//------------------------------------------------
+@import "mixins/effects";
+@import "mixins/positions";

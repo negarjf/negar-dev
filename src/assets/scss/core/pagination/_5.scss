@@ -1,0 +1,40 @@
+/*-----------------------------------------------------------------
+- Pagination > 5
+-----------------------------------------------------------------*/
+&.pagination-5{
+  li{
+    span,
+    a{
+      border: 0;
+      border-radius: 50%;
+      color: $pagination-text-color;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      line-height: 40px;
+      text-align: center;
+    }
+    &:first-child,
+    &:last-child{
+      margin: 0 10px;
+      a{
+        width: auto;
+        height: auto;
+        &:hover{
+          background: unset;
+          color: $pagination-text-color-active;
+        }
+      }
+    }
+    &.disabled{
+      a{
+        color: $pagination-text-disable-color;
+      }
+    }
+    &.active{
+      a, span{
+        color: #fff;
+      }
+    }
+  }
+}

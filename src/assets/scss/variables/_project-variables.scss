@@ -1,0 +1,417 @@
+//-----------------------------------------------------------------
+// Project variables
+//-----------------------------------------------------------------
+
+// Direction
+//------------------------------------------------
+$direction:          		ltr !default;
+
+
+
+// Page Loading
+//------------------------------------------------
+$page-loading-bg:           $color-primary;
+$page-loading-color:        $color-secondary;
+
+
+
+// Typography
+//------------------------------------------------
+
+// Load fonts
+$load-font-vazir:           false;
+$load-font-iran-sans:       false;
+$load-font-iran-yekan:      false;
+
+
+// Load icons
+$load-icon-yi:              false;
+$load-icon-md:              true;
+$load-icon-im:              false;
+$load-icon-fa:              false;
+$load-icon-br:              false;
+
+
+// Basic fonts
+$font-family:				'Muli', sans-serif !default;
+$font-family-heading:		'Muli', cursive !default;
+$font-size:          		14px !default;
+$font-weight:        		$font-weight-normal !default;
+$line-height:        		1.5 !default;
+
+// Link
+$link-color:                $color-primary !default;
+$link-decoration:           none !default;
+$link-hover-color:          $color-primary !default;
+$link-hover-decoration:     none !default;
+
+// Heading
+$heading-font-size:         40, 28, 20, 16, 14, 13 !default;
+$heading-font-weight:       900 !default;
+$heading-color:             $color-primary !default;
+$heading-line-height:       $line-height !default;
+$heading-margin-bottom:     15px !default;
+$heading-small-font-size:   80% !default;
+$heading-small-font-weight: $font-weight-normal !default;
+$heading-small-color:       $color-primary !default;
+$heading-small-line-height: $line-height !default;
+
+// Paragraph
+$p-color:					$color-gray !default;
+$p-font-weight:           	$font-weight-normal !default;
+
+
+
+// Transitions
+//------------------------------------------------
+$transition:				all 0.2s ease-in-out;
+$transition-effects:		all 0.3s ease 0s;
+$transition-alt:			all 0.5s;
+
+
+
+// Spacing
+//------------------------------------------------
+$space-xs:					5px;
+$space-sm:					10px;
+$space:						20px;
+$space-lg:					30px;
+
+
+// Padding
+//------------------------------------------------
+// XS
+$padding-xs-y:					6px;
+$padding-xs-x:					10px;
+$padding-xs:					$padding-xs-x $padding-xs-y;
+// SM
+$padding-sm-y:					8px;
+$padding-sm-x:					12px;
+$padding-sm:					$padding-sm-x $padding-sm-y;
+// Default
+$padding-y:						12px;
+$padding-x:						18px;
+$padding:						$padding-x $padding-y;
+// LG
+$padding-lg-y:					14px;
+$padding-lg-x:					21px;
+$padding-lg:					$padding-lg-x $padding-lg-y;
+// XLG
+$padding-xlg-y:					18px;
+$padding-xlg-x:					27px;
+$padding-xlg:					$padding-xlg-x $padding-xlg-y;
+
+
+
+// Border
+//------------------------------------------------
+$border-color:       	#f6f6f6;
+$border:             	2px solid $border-color;
+$border-light-color: 	#f6f6f6;
+$border-light: 			2px solid $border-light-color;
+$border-radius:      	0px;
+
+
+
+// Box Shadow
+//------------------------------------------------
+$box-shadow-xs:         0 2px 4px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.12);
+$box-shadow:         	0 2px 4px rgba(0,0,0,0.15);
+$box-shadow-sm:   		0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$box-shadow-lg:   		0 8px 15px rgba(0,0,0,0.15);
+$box-shadow-xlg:   		0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+
+
+// Images
+//------------------------------------------------
+$image-thumb-padding: 	5px;
+
+
+
+// Height
+//------------------------------------------------
+$height-xs: 				28px;
+$height-sm: 				34px;
+$height: 					40px;
+$height-lg: 				46px;
+
+
+
+// Buttons
+//------------------------------------------------
+$button-border-color:       #ddd;
+$button-border:             none;
+$button-bg:                 $color-secondary;
+$button-color:              #fff;
+$button-font-weight:        $font-weight-bold;
+$button-font-family:        inherit;
+$button-font-size:          14;
+$button-padding-y:          20px;
+$button-padding-x:          38px;
+$button-wide-add:			15;
+$button-wider-add:			35;
+$button-shadow:             none;
+$button-shadow-hover:       none;
+$button-shadow-active:      none;
+$button-gradient:			linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.2));
+$button-gradient-hover:		linear-gradient(to bottom, rgba(#000, 0), rgba(#000, 0.15));
+$button-gradient-active:	linear-gradient(to bottom, rgba(#000, 0.25), rgba(#000, 0));
+
+$button-icon-font-size:		14;
+$button-with-icon-font-size:14;
+$button-with-icon-margin:	6px;
+$button-labeled-padding-y:	16 + $height;
+
+// XS
+$button-xs-font-size:       	10;
+$button-xs-padding-y:       	$padding-xs-y;
+$button-xs-padding-x:       	$padding-xs-x;
+$button-xs-with-icon-margin:	5px;
+// SM
+$button-sm-font-size:       	12;
+$button-sm-padding-y:       	$padding-sm-y;
+$button-sm-padding-x:       	$padding-sm-x;
+$button-sm-with-icon-margin:	5px;
+// LG
+$button-lg-font-size:       	18;
+$button-lg-padding-y:       	$padding-lg-y;
+$button-lg-padding-x:       	$padding-lg-x;
+$button-lg-with-icon-margin:	8px;
+// XLG
+$button-xlg-font-size:      	24;
+$button-xlg-padding-y:      	$padding-xlg-y;
+$button-xlg-padding-x:      	$padding-xlg-x;
+$button-xlg-with-icon-margin:	10px;
+
+
+
+// Button Group
+//------------------------------------------------
+$button-group-button-shadow:            inset 0 1px 0 0 rgba(#fff, 0.2);
+$button-group-button-shadow-active:     inset 0 2px 5px 0 rgba(#000, 0.1);
+
+
+
+// Alerts
+//------------------------------------------------
+$alert-border:              $border;
+$alert-padding-y:           rem(14);
+$alert-padding-x:           rem(18);
+$alert-font-weight:			$font-weight-light;
+$alert-font-size:			rem(13);
+$alert-icon-width:			50px;
+$alert-icon-font-size:		rem(16);
+$alert-xs-padding-y:		8px;
+$alert-xs-padding-x:		12px;
+$alert-xs-font-size:		rem(11);
+$alert-xs-icon-width:		35px;
+$alert-xs-icon-font-size:	rem(12);
+$alert-sm-padding-y:		10px;
+$alert-sm-padding-x:		14px;
+$alert-sm-font-size:		rem(12);
+$alert-sm-icon-width:		40px;
+$alert-sm-icon-font-size:	rem(14);
+$alert-lg-padding-y:		16px;
+$alert-lg-padding-x:		20px;
+$alert-lg-font-size:		rem(16);
+$alert-lg-icon-width:		60px;
+$alert-lg-icon-font-size:	rem(20);
+
+
+
+// Progress
+//------------------------------------------------
+$progress-border:           0;
+$progress-bg:               #eceeef;
+$progress-font-size:        rem(12);
+
+
+
+// Forms
+//------------------------------------------------
+// Input
+$form-input-padding-y:				rem(10);
+$form-input-padding-x:				rem(25);
+$form-input-font-weight:    		600;
+$form-input-font-size:      		rem(15);
+$form-input-line-height:    		1.6;
+$form-input-placeholder-color: 		#868686;
+$form-input-color:					$color-secondary;
+$form-input-focus-color:			#000;
+$form-input-bg:						#fff;
+$form-input-border-color:			#eeeeee;
+$form-input-border:					2px solid $form-input-border-color;
+$form-input-border-hover-color:		$form-input-border-color;
+$form-input-border-focus-color:		$color-secondary;
+$form-input-border-radius:			$border-radius;
+$form-input-error-color:			$color-red;
+$form-input-success-color:			$color-green;
+$form-input-warning-color:			$color-orange;
+$form-input-xs-font-size:			rem(10);
+$form-input-xs-font-weight:			$font-weight-light;
+$form-input-xs-padding-y:			rem(6);
+$form-input-xs-padding-x:			rem(6);
+$form-input-sm-font-size:			rem(12);
+$form-input-sm-font-weight:			inherit;
+$form-input-sm-padding-y:			rem(8);
+$form-input-sm-padding-x:			rem(8);
+$form-input-lg-font-size:			rem(14);
+$form-input-lg-font-weight:			inherit;
+$form-input-lg-padding-y:			rem(10);
+$form-input-lg-padding-x:			rem(20);
+
+// Label
+$form-label-font-weight: 			$font-weight-light;
+$form-label-font-size: 				rem(13);
+$form-label-color: 					$color-primary;
+$form-label-margin-bottom: 			5px;
+
+// Checkbox
+$form-checkbox-size:				18px;
+$form-checkbox-margin-bottom:		rem(5);
+$form-checkbox-font-size:			rem(12);
+$form-checkbox-space:				$form-checkbox-size + 7px;
+$form-checkbox-border:				$border;
+$form-checkbox-bg:					#fbfbfb;
+$form-checkbox-tick-size:			10px;
+$form-checkbox-tick-border-size:	2px;
+$form-checkbox-tick-right:			7px;
+$form-checkbox-tick-top:			12px;
+$form-checkbox-tick-color:			#aaa;
+$form-checkbox-color:				$color-gray;
+$form-checkbox-checked-color:		$color-gray-darker;
+$form-checkbox-checked-bg:			$color-primary;
+$form-checkbox-checked-border:		$color-primary-dark;
+$form-checkbox-sm-size: 			14px;
+$form-checkbox-sm-font-size:		rem(10);
+$form-checkbox-sm-space:			$form-checkbox-sm-size + 7px;
+$form-checkbox-sm-tick-size:		8px;
+$form-checkbox-sm-tick-border-size:	1px;
+$form-checkbox-sm-tick-right:		5px;
+$form-checkbox-sm-tick-top:			9px;
+$form-checkbox-lg-size: 			24px;
+$form-checkbox-lg-font-size:		rem(16);
+$form-checkbox-lg-space:			$form-checkbox-lg-size + 6px;
+$form-checkbox-lg-tick-size:		14px;
+$form-checkbox-lg-tick-border-size:	3px;
+$form-checkbox-lg-tick-right:		9px;
+$form-checkbox-lg-tick-top:			14px;
+
+// Radio
+$form-radio-tick-size:				8px;
+$form-radio-tick-right:				5px;
+$form-radio-tick-top:				14px;
+$form-radio-sm-tick-size:			6px;
+$form-radio-sm-tick-border-size:	1px;
+$form-radio-sm-tick-right:			4px;
+$form-radio-sm-tick-top:			11px;
+$form-radio-lg-tick-border-size:	3px;
+$form-radio-lg-tick-right:			5px;
+$form-radio-lg-tick-top:			16px;
+
+// Switch
+$form-switch-off-bg:				$color-gray-light;
+$form-switch-xs-height: 			14px;
+$form-switch-sm-height: 			20px;
+$form-switch-height: 				26px;
+$form-switch-lg-height: 			32px;
+
+// Field
+$form-field-help-font-size:			rem(11);
+$form-field-help-font-weight:		$font-weight-light;
+$form-field-help-color:				$color-gray;
+$form-field-help-margin:			5px;
+$form-field-icon-width:				36px;
+
+
+
+// Panel
+//------------------------------------------------
+$panel-border:						$border;
+$panel-body-padding:				30px;
+$panel-header-padding:				10px 16px 10px 10px;
+$panel-header-min-height: 			44px;
+$panel-header-border-color: 		$border-color;
+$panel-header-border-width: 		1px;
+$panel-header-border: 				0 solid $panel-header-border-color;
+$panel-header-title-color: 			#666;
+$panel-header-title-font-family: 	$font-family-heading;
+$panel-header-title-font-weight: 	$font-weight-bold;
+$panel-header-icon-size: 			rem(20);
+$panel-header-icon-color: 			$color-primary;
+$panel-header-icon-padding: 		6px 0 8px 12px;
+$panel-header-icon-margin: 			8px;
+$panel-header-link-font-size: 		rem(14);
+
+
+// Modal
+//------------------------------------------------
+$modal-bg:							rgba(#000, 0.8);
+$modal-width:						600px;
+$modal-top:							150px;
+$modal-bottom:						100px;
+$modal-open-top:					100px;
+$modal-xs-width:					400px;
+$modal-sm-width:					600px;
+$modal-lg-width:					850px;
+
+
+
+// Labels
+//------------------------------------------------
+$label-bg: 							$color-gray;
+$label-border-radius: 				$border-radius;
+$label-padding-x: 					7px;
+$label-padding: 					5px $label-padding-x;
+$label-icon-width: 					20px;
+$label-font-size: 					rem(12);
+$label-xs-font-size:				rem(10);
+$label-xs-padding:				    2px 4px 3px;
+$label-xs-icon-width: 				16px;
+$label-sm-font-size:				rem(11);
+$label-sm-padding:					3px 6px 4px;
+$label-sm-icon-width: 				18px;
+$label-lg-font-size:				rem(14);
+$label-lg-padding:					7px 10px 8px;
+$label-lg-icon-width: 				24px;
+$label-border:						$border-light;
+$label-box-shadow:					$box-shadow;
+
+
+
+// Badges
+//------------------------------------------------
+$badge-padding: 					7px 7px 6px;
+$badge-font-size: 					rem(11);
+
+
+
+// Tables
+//------------------------------------------------
+$table-border-color: 				#f0f2f5;
+$table-border: 						1px solid $table-border-color;
+$table-head-font-family: 			$font-family;
+$table-head-font-weight:			$font-weight-bold;
+$table-head-color: 					$color-gray-dark;
+$table-head-bg: 					$bg-secondary;
+$table-head-border-color: 			#c9dce6;
+$table-font-size:		 			rem(14);
+
+
+
+// Divider
+//------------------------------------------------
+$divider-border-color:				$color-gray-light;
+
+
+
+// Breadcrumbs
+//------------------------------------------------
+$breadcrumbs-color:					$color-gray-light;
+$breadcrumbs-bg:					$bg-secondary;
+$breadcrumbs-padding:				10px 15px;
+$breadcrumbs-border:				0;
+$breadcrumbs-border-radius:			$border-radius;
+$breadcrumbs-divider-space:			15px;
+$breadcrumbs-box-shadow:			$box-shadow-xs;

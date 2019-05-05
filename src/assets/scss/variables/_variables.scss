@@ -1,0 +1,224 @@
+//-----------------------------------------------------------------
+// Variables
+//-----------------------------------------------------------------
+
+// Direction
+//------------------------------------------------
+$direction-reverse:  	if($direction == rtl, ltr, rtl) !default;
+$left:               	if($direction == rtl, left, right);
+$right:              	if($direction == rtl, right, left);
+
+
+
+// Grid
+//------------------------------------------------
+$bp-sizes: (
+        'xs': 480,
+        'sm': 768,
+        'md': 992,
+        'lg': 1200,
+);
+$container-sizes: (
+        'sm': 750,
+        'md': 970,
+        'lg': 1170,
+);
+$columns: 12;
+$gutter: 30px;
+
+
+
+// Typography
+//------------------------------------------------
+$font-directory:            '~@/assets/fonts/';
+$font-icon-directory:       $font-directory + 'icons/';
+
+// Font base
+$font-base-color:        	#000 !default;
+
+// Anchor
+$link-transition:     		$transition !default;
+
+// Heading
+$heading-font-family:       $font-family-heading;
+
+// Paragraph
+$p-font-family:           	inherit !default;
+$p-margin-bottom:           $space !default;
+
+// Mark
+$mark-bg:                   #fffecc !default;
+$mark-padding-y:            1px !default;
+$mark-padding-x:            3px !default;
+
+// Strong
+$strong-font-weight:        $font-weight-bold !default;
+
+// Code
+$code-font-family:          "Courier New", monospace !default;
+$code-font-size:            100% !default;
+$code-bg:                   #333 !default;
+$code-color:                #fff !default;
+$code-padding-y:            3px !default;
+$code-padding-x:            5px !default;
+
+
+
+// Z-index
+//------------------------------------------------
+$z-index-0:					0;
+$z-index-1:					100;
+$z-index-2:					200;
+$z-index-3:					300;
+$z-index-4:					400;
+$z-index-5:					500;
+$z-index-6:					600;
+$z-index-7:					700;
+$z-index-8:					800;
+$z-index-9:					900;
+$z-index-front:				9999;
+
+
+// Images
+//------------------------------------------------
+$image-border-radius: 		$border-radius;
+$image-thumb-border-color: 	$border-color;
+$image-thumb-border: 		1px solid $image-thumb-border-color;
+$image-thumb-shadow: 		$box-shadow;
+
+
+// Icons
+//------------------------------------------------
+$icon-selector: 			'[class^="icon-"], [class*=" icon-"], .icon';
+$icon-with-selector: 		'&[class^="icon-"], &[class*=" icon-"], &.icon';
+$icon-spin-speed: 		    1s;
+$icon-transition: 		    $transition;
+$icon-xs-font-size:         10px;
+$icon-sm-font-size:         14px;
+$icon-font-size:            16px;
+$icon-lg-font-size:         20px;
+$icon-xlg-font-size:        28px;
+
+
+
+// Buttons
+//------------------------------------------------
+$button-selector:           ".button";
+$button-height:       		$height;
+$button-border-radius:      $border-radius;
+$button-transition:         $transition;
+$button-disabled-cursor:    default;
+$button-disabled-opacity:   0.6;
+
+$button-xs-height:     		$height-xs;
+$button-sm-height:     		$height-sm;
+$button-lg-height:     		$height-lg;
+$button-wide-xs-padding-x:  $button-xs-padding-x + 6;
+$button-wide-sm-padding-x:  $button-sm-padding-x + 6;
+$button-wide-lg-padding-x:  $button-lg-padding-x + 6;
+
+
+// Labels
+//------------------------------------------------
+$label-xs-height:     		14px;
+$label-sm-height:     		18px;
+$label-height:     			22px;
+$label-lg-height:     		28px;
+
+// Alerts
+//------------------------------------------------
+$alert-border-radius:		$border-radius;
+$alert-fixed-space:         $space;
+$alert-bg:                  $bg-primary;
+$alert-box-shadow:          $box-shadow;
+$alert-margin-bottom:       $space;
+
+
+// Progress
+//------------------------------------------------
+$progress-height:           $height-xs;
+$progress-border-radius:    $border-radius;
+$progress-transition:       $transition;
+$progress-margin-bottom:    $space;
+$progress-box-shadow:       $box-shadow;
+
+
+// Forms
+//------------------------------------------------
+$form-input-selector:				"input[type=text], input[type=email], input[type=file], input[type=number], input[type=password], input[type=tel], input[type=url], input[type=search]";
+$form-input-height:     			$height;
+$form-input-font-family:    		inherit;
+$form-input-text-align:				$right;
+$form-input-transition:				$transition;
+$form-input-disabled-cursor:		not-allowed;
+$form-input-disabled-opacity:		0.7;
+$form-input-disabled-border-color:	$color-gray-lighter;
+$form-input-disabled-bg:			$color-gray-lightest;
+
+$form-input-xs-height:				$height-xs;
+$form-input-sm-height:				$height-sm;
+$form-input-lg-height:				$height-lg;
+
+// Label
+$form-label-font-family: 			inherit;
+
+// Checkbox
+$form-checkbox-border-radius:		$border-radius;
+
+// Radio
+$form-radio-border-radius:			$border-radius;
+$form-radio-size:					$form-checkbox-size;
+$form-radio-margin-bottom:			$form-checkbox-margin-bottom;
+$form-radio-font-size:				$form-checkbox-font-size;
+$form-radio-space:					$form-checkbox-space;
+$form-radio-border:					$form-checkbox-border;
+$form-radio-bg:						$form-checkbox-bg;
+$form-radio-tick-color:				$form-checkbox-tick-color;
+$form-radio-checked-color:			$form-checkbox-checked-color;
+$form-radio-checked-bg:				$form-checkbox-checked-bg;
+$form-radio-checked-border:			$form-checkbox-checked-border;
+$form-radio-sm-size: 				$form-checkbox-sm-size;
+$form-radio-sm-font-size:			$form-checkbox-sm-font-size;
+$form-radio-sm-space:				$form-checkbox-sm-space;
+$form-radio-lg-size: 				$form-checkbox-lg-size;
+$form-radio-lg-font-size:			$form-checkbox-lg-font-size;
+$form-radio-lg-space:				$form-checkbox-lg-space;
+$form-radio-lg-tick-size:			$form-checkbox-lg-tick-size;
+
+// Field
+$form-field-margin-bottom:			$space;
+
+
+// Panel
+//------------------------------------------------
+$panel-border-radius:				$border-radius;
+$panel-margin-bottom:				$space;
+$panel-box-shadow:					$box-shadow-lg;
+$panel-last-margin:					$space;
+$panel-body-background:				$bg-primary;
+$panel-header-bg: 					$bg-secondary;
+$panel-header-link-font-weight: 	inherit;
+
+
+// Modal
+//------------------------------------------------
+$modal-transition:					$transition;
+
+
+// Table
+//------------------------------------------------
+$table-margin-bottom: $space;
+$table-box-shadow: $box-shadow;
+$table-border-radius: $border-radius;
+$table-text-align: $right;
+$table-bg: $bg-primary;
+$table-odd-bg: $bg-secondary;
+
+
+// Divider
+//------------------------------------------------
+$divider-border-color:				$color-gray-light;
+$divider-border:					1px solid $divider-border-color;
+$divider-dashed-border-color:		$color-gray-light;
+$divider-dotted-border-color:		$color-gray-light;
+$divider-margin:					$space;

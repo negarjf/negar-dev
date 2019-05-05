@@ -1,0 +1,220 @@
+/*-----------------------------------------------------------------
+- Labels
+-----------------------------------------------------------------*/
+.label{
+	display: inline-block;
+	height: $label-height;
+	padding: $label-padding;
+	font-weight: $font-weight-normal;
+	font-size: $label-font-size;
+	line-height: 1;
+	background: $label-bg;
+	color: #ffffff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border-radius: $label-border-radius;
+
+	// Link fix
+	&[href]:hover{
+		background: lighten($label-bg, 10%);
+		color: #fff;
+	}
+
+	// Colors
+    @if( is-active('label', 'colors') ){
+        @each $color, $value in $labels-colors{
+            &.#{$color}{
+                background: $value;
+
+                &[href]:hover{
+                    background: lighten($value, 10%);
+                }
+            }
+        }
+    }
+
+    @if( is-active('label', 'icons') ) {
+        // Only Icon
+        #{$icon-with-selector} {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        // Icon Inside
+        #{$icon-selector} {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+    }
+
+
+	// Sizes
+	//------------------------------------------------
+	// XS
+    @if( is-active('label', 'xs') ) {
+        &.xs {
+            height: $label-xs-height;
+            font-size: $label-xs-font-size;
+            padding: $label-xs-padding;
+        }
+    }
+	// SM
+    @if( is-active('label', 'sm') ) {
+        &.sm {
+            height: $label-sm-height;
+            font-size: $label-sm-font-size;
+            padding: $label-sm-padding;
+        }
+    }
+	// LG
+    @if( is-active('label', 'lg') ) {
+        &.lg {
+            height: $label-lg-height;
+            font-size: $label-lg-font-size;
+            padding: $label-lg-padding;
+        }
+    }
+
+
+	// Labeled
+    @if( is-active('label', 'labeled') ) {
+        &.labeled {
+            position: relative;
+            padding-right: $label-icon-width + $label-padding-x;
+            overflow: hidden;
+
+            @if( is-active('label', 'icons') ) {
+                #{$icon-selector} {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: $label-icon-width;
+                    height: 100%;
+                    font-family: $font-family-icon;
+                    margin: 0;
+                    background: rgba(0, 0, 0, 0.05);
+                    border-left: 1px solid rgba(0, 0, 0, 0.05);
+
+                    &:before {
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        top: 50%;
+                        text-align: center;
+                        transform: translateY(-50%);
+                    }
+                }
+
+                &.left {
+                    padding-right: $label-padding-x;
+                    padding-left: $label-icon-width + $label-padding-x;
+
+                    #{$icon-selector} {
+                        right: auto;
+                        left: 0;
+                        border-left: 0;
+                        border-right: 1px solid rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+
+            // Sizes
+            @if( is-active('label', 'xs') ) {
+                &.xs {
+                    #{$icon-selector} {
+                        width: $label-xs-icon-width;
+                    }
+                }
+            }
+
+            @if( is-active('label', 'sm') ) {
+                &.sm {
+                    #{$icon-selector} {
+                        width: $label-sm-icon-width;
+                    }
+                }
+            }
+
+            @if( is-active('label', 'lg') ) {
+                &.lg {
+                    #{$icon-selector} {
+                        width: $label-lg-icon-width;
+                    }
+                }
+            }
+        }
+    }
+
+	// Badge
+	&.badge{
+		min-width: $label-height;
+		padding: $badge-padding;
+		font-size: $badge-font-size;
+	}
+
+	// Rounded
+	&.rounded{
+		border-radius: $label-height;
+
+		&.xs{
+			border-radius: $label-xs-height;
+		}
+		&.sm{
+			border-radius: $label-sm-height;
+		}
+		&.lg{
+			border-radius: $label-lg-height;
+		}
+	}
+
+	// Alt
+    @if( is-active('label', 'alt') ){
+        &.alt{
+            border: $label-border;
+            background: transparent;
+            color: $color-gray;
+
+            @each $color, $value in $labels-colors{
+                &.#{$color}{
+                    border-color: $value;
+                    background: rgba($value, 0);
+                    color: $value;
+
+                    &[href]:hover{
+                        background: rgba($value, 0.15);
+                    }
+                }
+            }
+        }
+    }
+
+	// Inverted
+    @if( is-active('label', 'inverted') ){
+        &.inverted{
+            border: $label-border;
+            background: transparent;
+            color: $color-gray;
+
+            @each $color, $value in $labels-colors{
+                &.#{$color}{
+                    border-color: $value;
+                    background: rgba($value, 0);
+                    color: $value;
+
+                    &[href]:hover{
+                        background: $value;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+	// Shadowed
+	&.shadowed{
+		&[href]:hover{
+			box-shadow: $label-box-shadow;
+		}
+	}
+}

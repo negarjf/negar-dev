@@ -1,0 +1,110 @@
+/*-----------------------------------------------------------------
+- List Group
+-----------------------------------------------------------------*/
+.list-group{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: $border;
+	border-radius: $border-radius;
+	background: #ffffff;
+	overflow: hidden;
+
+	.list-group-item{
+		display: inline-block;
+		width: 100%;
+		vertical-align: middle;
+		padding: 10px 20px;
+		border-bottom: $border;
+		color: $color-gray;
+		position: relative;
+
+		#{$icon-selector}{
+			vertical-align: middle;
+			margin-left: 10px;
+		}
+
+		&:last-child{
+			border-bottom: 0;
+		}
+
+		&:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 3px;
+			height: 100%;
+			background: transparent;
+			transition: $transition;
+		}
+
+		&[href]:not(.active){
+			&:hover{
+				color: $link-hover-color;
+				background: #fafafa;
+
+				&:after{
+					background: rgba(#000, 0.2);
+				}
+			}
+		}
+
+		// Active
+		&.active{
+			background: $color-primary;
+			color: #fff;
+
+			&:after{
+				background: rgba(#000, 0.2);
+			}
+		}
+
+		// Badge & Label
+		.badge, .label{
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translateY(-50%);
+		}
+
+		// Disabled
+		&.disabled{
+			background: $color-gray-lighter;
+			opacity: $button-disabled-opacity;
+			cursor: $button-disabled-cursor;
+			pointer-events: none;
+		}
+	}
+
+	// Unstyled
+	//------------------------------------------------
+	&.unstyled{
+		li{
+			padding: 0;
+		}
+		ul{
+			padding-right: 25px;
+			margin-bottom: 10px;
+		}
+	}
+
+	// Bordered
+	//------------------------------------------------
+	&.bordered{
+		border: $border;
+		border-radius: $border-radius;
+
+		li{
+			border-bottom: $border;
+
+			&:first-child{
+				border-radius: $border-radius $border-radius 0 0;
+			}
+			&:last-child{
+				border-radius: 0 0 $border-radius $border-radius;
+				border-bottom: 0;
+			}
+		}
+	}
+}

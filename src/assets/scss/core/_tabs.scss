@@ -1,0 +1,149 @@
+/*-----------------------------------------------------------------
+- Tabs
+-----------------------------------------------------------------*/
+.tab-titles{
+	width: 100%;
+	border-bottom: $border;
+	@include clearfix;
+
+	a{
+		float: $right;
+		font-family: $font-family;
+		font-size: rem(14);
+		border-#{$left}: $border;
+		border-top: $border;
+		padding: 10px 25px 12px;
+		background: #fafafa;
+		color: $color-gray;
+		position: relative;
+		white-space: nowrap;
+		text-align: center;
+
+		&:before{
+			content: '';
+			position: absolute;
+			top: -1px;
+			right: 0;
+			width: 100%;
+			border-top: 3px solid transparent;
+
+			&:first-child:not(:last-child){
+				border-top-right-radius: $border-radius;
+			}
+			&:last-child:not(:first-child){
+				border-top-left-radius: $border-radius;
+			}
+		}
+
+		&:first-child{
+			border-#{$right}: $border;
+		}
+
+		&:hover{
+			color: $color-primary;
+		}
+
+		&:first-child:not(:last-child){
+			border-top-right-radius: $border-radius;
+		}
+		&:last-child:not(:first-child){
+			border-top-left-radius: $border-radius;
+		}
+
+		&.active{
+			background: #ffffff;
+			color: $color-primary;
+
+			&:before{
+				border-top-color: $color-primary;
+			}
+			&:after{
+				content: '';
+				position: absolute;
+				bottom: -1px;
+				right: 0;
+				width: 100%;
+				height: 1px;
+				background: #ffffff;
+				z-index: 1;
+			}
+		}
+
+		// Icons
+		[class^="icon-"], [class*=" icon-"]{
+			vertical-align: baseline;
+			margin-left: 8px;
+			position: relative;
+			top: 1px;
+		}
+	}
+
+	// Colors for all
+    @if( is-active('tab', 'colors') ){
+        @each $color, $value in $tabs-colors{
+            &.#{$color} a, a.#{$color}{
+                &.active{
+                    @if (lightness($value) > 80) {
+                        color: darken($value, 30%);
+                    } @else {
+                        color: $value;
+                    }
+
+                    &:before{
+                        border-top-color: $value;
+                    }
+                }
+
+                &:hover{
+                    @if (lightness($value) > 80) {
+                        color: darken($value, 30%);
+                    } @else {
+                        color: $value;
+                    }
+                }
+            }
+        }
+    }
+
+	// Left
+	&.#{$left}{
+		a{
+			float: left;
+
+			&:first-child{
+				border-#{$right}: 0;
+			}
+			&:last-child{
+				border-#{$right}: $border;
+			}
+		}
+	}
+
+	// Block
+	&.block{
+		display: table;
+		table-layout: fixed;
+
+		a{
+			float: none;
+			display: table-cell;
+		}
+		&:after{
+			display: none;
+		}
+	}
+}
+
+.tab-contents{
+	overflow: hidden;
+    position: relative;
+    @include clearfix;
+	.tab-content{
+		padding: 15px;
+		border: $border;
+		border-top: 0;
+		background: #ffffff;
+	}
+}
+
+// @TODO: Vertical, side, variables

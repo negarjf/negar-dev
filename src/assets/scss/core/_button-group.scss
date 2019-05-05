@@ -1,0 +1,117 @@
+/*-----------------------------------------------------------------
+- Button group
+-----------------------------------------------------------------*/
+.button-group {
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: $button-shadow;
+    position: relative;
+	//height: $button-height;
+
+    //--------------------------------
+    // Button
+    //--------------------------------
+    #{$button-selector}{
+        position: relative;
+        float: $right;
+        box-shadow: $button-group-button-shadow;
+        border-radius: 0;
+        margin-#{$right}: -1px;
+
+        &:active, &.active{
+            box-shadow: $button-group-button-shadow-active;
+        }
+
+        @if($direction == rtl){
+            &:first-child{
+                border-radius: 0 $button-border-radius $button-border-radius 0;
+            }
+            &:last-child{
+                border-radius: $button-border-radius 0 0 $button-border-radius;
+            }
+        } @else {
+            &:first-child{
+                border-radius: $button-border-radius 0 0 $button-border-radius;
+            }
+            &:last-child{
+                border-radius: 0 $button-border-radius $button-border-radius 0;
+            }
+        }
+    }
+
+	.dropdown{
+		float: right;
+
+		@if($direction == rtl){
+			&:first-child #{$button-selector}{
+				border-radius: 0 $button-border-radius $button-border-radius 0;
+			}
+			&:last-child #{$button-selector}{
+				border-radius: $button-border-radius 0 0 $button-border-radius;
+			}
+		} @else {
+			&:first-child #{$button-selector}{
+				border-radius: $button-border-radius 0 0 $button-border-radius;
+			}
+			&:last-child #{$button-selector}{
+				border-radius: 0 $button-border-radius $button-border-radius 0;
+			}
+		}
+	}
+
+    //--------------------------------
+    // Block
+    //--------------------------------
+	&.block {
+		display: table;
+		width: 100%;
+
+		#{$button-selector} {
+			display: table-cell;
+			float: none;
+			height: auto;
+		}
+
+		&:not(.vertical){
+			#{$button-selector}:not(:last-child) {
+				display: table-cell;
+				float: none;
+				height: auto;
+			}
+			#{$button-selector}{
+				&:not(:last-child){
+					border-#{$left}: 0;
+				}
+			}
+		}
+	}
+
+    //--------------------------------
+    // Vertical
+    //--------------------------------
+	&.vertical {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+
+		#{$button-selector} {
+			display: block;
+			float: none;
+			width: 100%;
+			max-width: 100%;
+			border-radius: 0;
+			margin-top: -1px;
+			margin-#{$right}: 0;
+
+			&:first-child {
+				border-radius: $button-border-radius $button-border-radius 0 0;
+			}
+
+			&:last-child {
+				border-radius: 0 0 $button-border-radius $button-border-radius;
+			}
+		}
+	}
+}
+
+// Todo: Rounded, sizing

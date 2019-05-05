@@ -1,0 +1,66 @@
+@if( $load-font-iran-yekan == true ) {
+
+    /*-----------------------------------------------------------------
+    - Typography: Iran Yekan
+    -----------------------------------------------------------------*/
+    $font-name: IranYekan;
+    $current-font-directory: $font-directory + 'IranYekan/';
+
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebregular.eot');
+        src: url($current-font-directory + 'iranyekanwebregular.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebregular.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebregular.ttf') format('truetype');
+        font-weight: $font-weight-normal;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebextrabold.eot');
+        src: url($current-font-directory + 'iranyekanwebextrabold.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebextrabold.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebextrabold.ttf') format('truetype');
+        font-weight: $font-weight-bold;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebblack.eot');
+        src: url($current-font-directory + 'iranyekanwebblack.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebblack.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebblack.ttf') format('truetype');
+        font-weight: $font-weight-black;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebextrablack.eot');
+        src: url($current-font-directory + 'iranyekanwebextrablack.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebextrablack.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebextrablack.ttf') format('truetype');
+        font-weight: $font-weight-extrablack;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanweblight.eot');
+        src: url($current-font-directory + 'iranyekanweblight.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanweblight.woff') format('woff'),
+        url($current-font-directory + 'iranyekanweblight.ttf') format('truetype');
+        font-weight: $font-weight-light;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebmedium.eot');
+        src: url($current-font-directory + 'iranyekanwebmedium.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebmedium.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebmedium.ttf') format('truetype');
+        font-weight: $font-weight-medium;
+    }
+    @font-face {
+        font-family: $font-name;
+        src: url($current-font-directory + 'iranyekanwebthin.eot');
+        src: url($current-font-directory + 'iranyekanwebthin.eot?#iefix') format('embedded-opentype'),
+        url($current-font-directory + 'iranyekanwebthin.woff') format('woff'),
+        url($current-font-directory + 'iranyekanwebthin.ttf') format('truetype');
+        font-weight: $font-weight-ultralight;
+    }
+
+}

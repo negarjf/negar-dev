@@ -1,0 +1,143 @@
+//-----------------------------------------------------------------
+// Color variables
+//-----------------------------------------------------------------
+
+// Colors
+//------------------------------------------------
+$color-red:                 #ff4d4f      !default;
+$color-pink:                #f54ea2      !default;
+$color-orange:              #fda12e      !default;
+$color-yellow:              #ffdd65      !default;
+$color-green:               #21ba45      !default;
+$color-teal:                #3fc1c9      !default;
+$color-blue:                #1d58ff      !default;
+$color-purple:              #41228d      !default;
+$color-brown:               #9F5232      !default;
+$color-gray:                #222222 	 !default;
+$color-white:               #ffffff 	 !default;
+
+$color-primary:				$color-gray;
+$color-secondary:			$color-pink;
+
+
+// Validation colors
+//------------------------------------------------
+$color-success:				$color-green;
+$color-dander:				$color-red;
+$color-error:				$color-red;
+$color-warning:				$color-orange;
+$color-info:				$color-blue;
+
+
+// Backgrounds
+//------------------------------------------------
+$bg-primary:				#fff;
+$bg-secondary:				#faf7f7;
+
+
+// Generate colors
+//------------------------------------------------
+$colors: (
+	 red:		$color-red,
+	 pink:		$color-pink,
+	 orange:	$color-orange,
+	 yellow:	$color-yellow,
+	 green:		$color-green,
+	 teal:		$color-teal,
+	 blue:		$color-blue,
+	 purple:	$color-purple,
+	 brown:	    $color-brown,
+	 gray:		$color-gray,
+	 white:		$color-white,
+) !default;
+
+// Colors tones
+$color-red-lightest: 		color(red, lightest);
+$color-red-lighter: 		color(red, lighter);
+$color-red-light: 			color(red, light);
+$color-red-dark: 			color(red, dark);
+$color-red-darker: 			color(red, darker);
+$color-red-darkest: 		color(red, darkest);
+
+$color-pink-lightest: 		color(pink, lightest);
+$color-pink-lighter: 		color(pink, lighter);
+$color-pink-light: 			color(pink, light);
+$color-pink-dark: 			color(pink, dark);
+$color-pink-darker: 	    color(pink, darker);
+$color-pink-darkest: 		color(pink, darkest);
+
+$color-orange-lightest: 	color(orange, lightest);
+$color-orange-lighter: 		color(orange, lighter);
+$color-orange-light: 		color(orange, light);
+$color-orange-dark: 		color(orange, dark);
+$color-orange-darker: 		color(orange, darker);
+$color-orange-darkest: 		color(orange, darkest);
+
+$color-yellow-lightest: 	color(yellow, lightest);
+$color-yellow-lighter: 		color(yellow, lighter);
+$color-yellow-light: 		color(yellow, light);
+$color-yellow-dark: 		color(yellow, dark);
+$color-yellow-darker: 		color(yellow, darker);
+$color-yellow-darkest: 		color(yellow, darkest);
+
+$color-green-lightest: 		color(green, lightest);
+$color-green-lighter: 		color(green, lighter);
+$color-green-light: 		color(green, light);
+$color-green-dark: 			color(green, dark);
+$color-green-darker: 		color(green, darker);
+$color-green-darkest: 		color(green, darkest);
+
+$color-teal-lightest: 		color(teal, lightest);
+$color-teal-lighter: 		color(teal, lighter);
+$color-teal-light: 			color(teal, light);
+$color-teal-dark: 			color(teal, dark);
+$color-teal-darker: 		color(teal, darker);
+$color-teal-darkest: 		color(teal, darkest);
+
+$color-blue-lightest: 		color(blue, lightest);
+$color-blue-lighter: 		color(blue, lighter);
+$color-blue-light: 			color(blue, light);
+$color-blue-dark: 			color(blue, dark);
+$color-blue-darker: 		color(blue, darker);
+$color-blue-darkest: 		color(blue, darkest);
+
+$color-purple-lightest: 	color(purple, lightest, 35);
+$color-purple-lighter: 		color(purple, lighter);
+$color-purple-light: 		color(purple, light);
+$color-purple-dark: 		color(purple, dark);
+$color-purple-darker: 		color(purple, darker);
+$color-purple-darkest: 		color(purple, darkest);
+
+$color-gray-lightest: 		color(gray, lightest, 60);
+$color-gray-lighter: 		color(gray, lighter);
+$color-gray-light: 			color(gray, light);
+$color-gray-dark: 			color(gray, dark);
+$color-gray-darker: 		color(gray, darker);
+$color-gray-darkest: 		color(gray, darkest);
+
+$color-primary-lightest: 	color($color-primary, lightest);
+$color-primary-lighter: 	color($color-primary, lighter);
+$color-primary-light: 		color($color-primary, light);
+$color-primary-dark: 		color($color-primary, dark);
+$color-primary-darker: 		color($color-primary, darker);
+$color-primary-darkest: 	color($color-primary, darkest);
+
+$color-secondary-lightest: 	color($color-secondary, lightest);
+$color-secondary-lighter: 	color($color-secondary, lighter);
+$color-secondary-light: 	color($color-secondary, light);
+$color-secondary-dark: 		color($color-secondary, dark);
+$color-secondary-darker: 	color($color-secondary, darker);
+$color-secondary-darkest: 	color($color-secondary, darkest);
+
+$colors-all: (
+	'red': $color-red, 'red-lightest': $color-red-lightest, 'red-lighter': $color-red-lighter, 'red-light': $color-red-light, 'red-dark': $color-red-dark, 'red-darker': $color-red-darker, 'red-darkest': $color-red-darkest,
+	'pink': $color-pink, 'pink-lightest': $color-pink-lightest, 'pink-lighter': $color-pink-lighter, 'pink-light': $color-pink-light, 'pink-dark': $color-pink-dark, 'pink-darker': $color-pink-darker, 'pink-darkest': $color-pink-darkest,
+	'orange': $color-orange, 'orange-lightest': $color-orange-lightest, 'orange-lighter': $color-orange-lighter, 'orange-light': $color-orange-light, 'orange-dark': $color-orange-dark, 'orange-darker': $color-orange-darker, 'orange-darkest': $color-orange-darkest,
+	'yellow': $color-yellow, 'yellow-lightest': $color-yellow-lightest, 'yellow-lighter': $color-yellow-lighter, 'yellow-light': $color-yellow-light, 'yellow-dark': $color-yellow-dark, 'yellow-darker': $color-yellow-darker, 'yellow-darkest': $color-yellow-darkest,
+	'green': $color-green, 'green-lightest': $color-green-lightest, 'green-lighter': $color-green-lighter, 'green-light': $color-green-light, 'green-dark': $color-green-dark, 'green-darker': $color-green-darker, 'green-darkest': $color-green-darkest,
+	'teal': $color-teal, 'teal-lightest': $color-teal-lightest, 'teal-lighter': $color-teal-lighter, 'teal-light': $color-teal-light, 'teal-dark': $color-teal-dark, 'teal-darker': $color-teal-darker, 'teal-darkest': $color-teal-darkest,
+	'blue': $color-blue, 'blue-lightest': $color-blue-lightest, 'blue-lighter': $color-blue-lighter, 'blue-light': $color-blue-light, 'blue-dark': $color-blue-dark, 'blue-darker': $color-blue-darker, 'blue-darkest': $color-blue-darkest,
+	'purple': $color-purple, 'purple-lightest': $color-purple-lightest, 'purple-lighter': $color-purple-lighter, 'purple-light': $color-purple-light, 'purple-dark': $color-purple-dark, 'purple-darker': $color-purple-darker, 'purple-darkest': $color-purple-darkest,
+	'gray': $color-gray, 'gray-lightest': $color-gray-lightest, 'gray-lighter': $color-gray-lighter, 'gray-light': $color-gray-light, 'gray-dark': $color-gray-dark, 'gray-darker': $color-gray-darker, 'gray-darkest': $color-gray-darkest,
+	'white': $color-white
+) !default;

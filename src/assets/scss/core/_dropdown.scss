@@ -1,0 +1,368 @@
+/*-----------------------------------------------------------------
+- Dropdown
+-----------------------------------------------------------------*/
+.dropdown {
+	position: relative;
+	display: inline-block;
+
+	// Caret
+	.dropdown-toggle.button{
+		#{$icon-with-selector} {
+			width: auto;
+			padding-right: 8px;
+			padding-left: 8px;
+		}
+	}
+	.dropdown-toggle:after{
+		content: '';
+		display: inline-block;
+		width: 0;
+		height: 0;
+		margin-#{$right}: 5px;
+		vertical-align: middle;
+		border-top: 4px dashed;
+		border-right: 4px solid transparent;
+		border-left: 4px solid transparent;
+	}
+	&.no-caret{
+		.dropdown-toggle:after{
+			display: none;
+		}
+	}
+
+	// Menu & items
+	.menu{
+		min-width: 120px;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		margin: 2px 0 0 0;
+		padding: 5px 0;
+		background: #ffffff;
+		border: $border;
+		box-shadow: $box-shadow;
+		z-index: 9999;
+		opacity: 0;
+		visibility: hidden;
+        transform: translateY(-10%);
+		text-align: $right;
+        transition: all 0.5s;
+
+		// Active
+		&.open {
+			visibility: visible;
+			transform: translateY(0);
+			opacity: 1;
+		}
+
+		// Arrow
+		&:after, &:before {
+			bottom: 100%;
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+		&:after {
+			border-color: rgba(255, 255, 255, 0);
+			border-bottom-color: #fff;
+			border-width: 7px;
+			right: 10px;
+		}
+		&:before {
+			border-color: rgba(229, 229, 229, 0);
+			border-bottom-color:darken($border-color, 5%);
+			border-width: 8px;
+			right: 9px;
+		}
+
+		//--------------------------------
+		// Item
+		//--------------------------------
+		> a{
+			display: block;
+			font: $font-weight-light rem(13) $font-family;
+			color: #333 !important;
+			text-decoration: none;
+			white-space: nowrap;
+			padding: 6px 50px 6px 12px;
+			-webkit-font-smoothing: antialiased;
+			position: relative;
+
+			&:hover{
+				background: #f4f9fe;
+				color: $color-primary;
+			}
+
+			&:last-child{
+				border-bottom: 0;
+			}
+
+			// With icon
+			#{$icon-with-selector} {
+				position: relative;
+				padding-#{$right}: 34px;
+
+				&:before {
+					position: absolute;
+					top: 50%;
+					right: 10px;
+					transform: translateY(-50%);
+					font-family: $font-family-icon;
+					font-size: rem(14);
+				}
+			}
+
+			// Icon inside
+			#{$icon-selector}{
+				display: inline-block;
+				width: 14px;
+				margin-#{$left}: 3px;
+				text-align: center;
+			}
+
+			// Badge and label
+			.badge, .label{
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				transform: translateY(-50%);
+			}
+		}
+	}
+
+	// Header & Footer
+	header, footer{
+		width: 100%;
+		padding: 12px 16px;
+		background: #fafafa;
+	}
+	header, footer{
+		border-bottom: $border;
+		margin: -5px 0 5px;
+		position: relative;
+
+		.functions{
+			position: absolute;
+			top: 50%;
+			left: 16px;
+			transform: translateY(-50%);
+		}
+
+		.title{
+			color: $color-gray-dark;
+		}
+	}
+	footer{
+		border-top: $border;
+		margin: 5px 0 -5px;
+
+		a{
+			padding: 0 !important;
+			margin: 0 !important;
+			bottom: 0 !important;
+
+			&:hover{
+				background: none !important;
+			}
+		}
+	}
+
+	//--------------------------------
+	// Header
+	//--------------------------------
+	.header{
+		display: block;
+		font: $font-weight-light rem(12) $font-family;
+		color: #777;
+		text-decoration: none;
+		white-space: nowrap;
+		padding: 3px 12px 3px 24px;
+		-webkit-font-smoothing: antialiased;
+
+		&:before{
+			content: '- ';
+		}
+	}
+
+
+	//--------------------------------
+	// Divider
+	//--------------------------------
+	.divider{
+		display: block;
+		width: 100%;
+		height: 1px;
+		border-bottom: $border-light;
+		margin: 3px 0;
+	}
+
+
+	//-----------------------------------------------------------------
+	// Top
+	//-----------------------------------------------------------------
+	&.top-right, &.top-left{
+		.menu{
+			top: auto;
+			bottom: 100%;
+			margin: 0 0 2px 0;
+
+			&:before, &:after{
+				bottom: auto;
+				top: 100%;
+			}
+			&:after{
+				border-color: rgba(229, 229, 229, 0);
+				border-top-color: #fff;
+			}
+			&:before{
+				border-color: rgba(229, 229, 229, 0);
+				border-top-color:darken($border-color, 5%);
+			}
+		}
+	}
+	&.top-left{
+		.menu{
+			right: auto;
+			left: 0;
+
+			&:after{
+				right: auto;
+				left: 10px;
+			}
+			&:before{
+				right: auto;
+				left: 9px;
+			}
+		}
+	}
+
+
+	//-----------------------------------------------------------------
+	// Bottom
+	//-----------------------------------------------------------------
+	&.bottom-left{
+		.menu{
+			top: 100%;
+			right: auto;
+			left: 0;
+			margin: 2px 0 0 0;
+
+			&:after{
+				right: auto;
+				left: 10px;
+			}
+			&:before{
+				right: auto;
+				left: 9px;
+			}
+		}
+	}
+
+
+	//-----------------------------------------------------------------
+	// Right
+	//-----------------------------------------------------------------
+	&.right-top, &.right-bottom{
+		.menu{
+			right: 100%;
+			margin: 0 2px 0 0;
+
+			&:after{
+				border-color: rgba(255, 255, 255, 0);
+				border-left-color: #fff;
+				left: 100%;
+				right: auto;
+			}
+			&:before{
+				border-color: rgba(229, 229, 229, 0);
+				border-left-color:darken($border-color, 5%);
+				left: 100%;
+				right: auto;
+			}
+		}
+	}
+
+	&.right-top{
+		.menu{
+			top: 0;
+
+			&:after{
+				top: 10px;
+			}
+			&:before{
+				top: 9px;
+			}
+		}
+	}
+	&.right-bottom{
+		.menu{
+			top: auto;
+			bottom: 0;
+
+			&:after{
+				top: auto;
+				bottom: 10px;
+			}
+			&:before{
+				top: auto;
+				bottom: 9px;
+			}
+		}
+	}
+
+
+	//-----------------------------------------------------------------
+	// Left
+	//-----------------------------------------------------------------
+	&.left-top, &.left-bottom{
+		.menu{
+			right: auto;
+			left: 100%;
+			margin: 0 0 0 2px;
+
+			&:after{
+				border-color: rgba(255, 255, 255, 0);
+				border-right-color: #fff;
+				right: 100%;
+			}
+			&:before{
+				border-color: rgba(229, 229, 229, 0);
+				border-right-color:darken($border-color, 5%);
+				right: 100%;
+			}
+		}
+	}
+
+	&.left-top{
+		.menu{
+			top: 0;
+
+			&:after{
+				top: 10px;
+			}
+			&:before{
+				top: 9px;
+			}
+		}
+	}
+	&.left-bottom{
+		.menu{
+			top: auto;
+			bottom: 0;
+
+			&:after{
+				top: auto;
+				bottom: 10px;
+			}
+			&:before{
+				top: auto;
+				bottom: 9px;
+			}
+		}
+	}
+}
+
+// @TODO: variables

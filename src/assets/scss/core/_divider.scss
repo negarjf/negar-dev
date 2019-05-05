@@ -1,0 +1,135 @@
+/*-----------------------------------------------------------------
+- Divider
+-----------------------------------------------------------------*/
+@if( is-active('divider', 'hr') ){
+    hr{
+        display: inline-block;
+        width: 100%;
+        @include clearfix;
+        border: 0;
+        border-top: $divider-border;
+        margin: $divider-margin 0;
+
+        // Dashed
+        &.dashed{
+            border-style: dashed;
+            border-top-color: $divider-dashed-border-color;
+        }
+
+        // Dotted
+        &.dotted{
+            border-style: dotted;
+            border-top-color: $divider-dotted-border-color;
+        }
+
+        // Inverted
+        &.inverted{
+            border-top-color: #eee;
+        }
+
+        // Colors
+        @if( is-active('divider', 'colors') ){
+            @each $color, $value in $dividers-colors{
+                &.#{$color}{
+                    border-top-color: $value;
+                }
+            }
+        }
+
+        // Hidden
+        &.hidden{
+            border-top: 0;
+        }
+
+        // Sizes
+        &.xs{
+            margin: 5px 0;
+        }
+        &.sm{
+            margin: 12px 0;
+        }
+        &.lg{
+            margin: 30px 0;
+        }
+    }
+}
+
+@if( is-active('divider', 'divider') ){
+    .divider{
+        display: inline-block;
+        width: 100%;
+        @include clearfix;
+        margin: $divider-margin 0;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+
+        @if( is-active('divider', 'title') ) {
+            .title {
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                color: $color-gray;
+
+                &:before, &:after {
+                    display: inline-block;
+                    content: '';
+                    width: 1000px;
+                    height: 1px;
+                    border-top: $divider-border;
+                    position: absolute;
+                    top: 50%;
+                }
+
+                &:before {
+                    right: 100%;
+                    margin-right: 15px;
+                }
+
+                &:after {
+                    left: 100%;
+                    margin-left: 15px;
+                }
+
+                &:not(.only-icon) {
+                    #{$icon-selector} {
+                        margin-#{$left}: 5px;
+                    }
+                }
+            }
+        }
+
+        // Inverted
+        &.inverted .title{
+            color: #eeeeee;
+
+            &:before, &:after{
+                border-top-color: #eee;
+            }
+        }
+
+        // Colors
+        @if( is-active('divider', 'colors') ){
+            @each $color, $value in $dividers-colors{
+                &.#{$color} .title{
+                    color: $value;
+
+                    &:before, &:after{
+                        border-top-color: $value;
+                    }
+                }
+            }
+        }
+
+        // Sizes
+        &.xs{
+            margin: 5px 0;
+        }
+        &.sm{
+            margin: 12px 0;
+        }
+        &.lg{
+            margin: 30px 0;
+        }
+    }
+}

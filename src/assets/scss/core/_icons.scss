@@ -1,0 +1,105 @@
+/*-----------------------------------------------------------------
+- Icons core
+-----------------------------------------------------------------*/
+.icon {
+    font-size: $icon-font-size;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    transition: $icon-transition;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Bold
+    &.bold{
+        font-weight: 900;
+    }
+
+    // General sizes
+    &.xs {
+        font-size: $icon-xs-font-size;
+    }
+
+    &.sm {
+        font-size: $icon-sm-font-size;
+    }
+
+    &.lg {
+        font-size: $icon-lg-font-size;
+    }
+
+    &.xlg {
+        font-size: $icon-xlg-font-size;
+    }
+
+    // Scale sizes
+    @for $i from 1 through 10 {
+        &.#{$i}x {
+            font-size: #{$i}rem;
+        }
+    }
+
+    &.rotate90, &.rotate180, &.rotate270,
+    &.flip-h, &.flip-v, &.flip-both, &.spin {
+        display: inline-block;
+    }
+
+    // Rotate
+    &.rotate90 {
+        transform: rotate(90deg);
+    }
+
+    &.rotate180 {
+        transform: rotate(90deg);
+    }
+
+    &.rotate270 {
+        transform: rotate(90deg);
+    }
+
+    // Flip
+    &.flip-h {
+        transform: scale(-1, 1);
+    }
+
+    &.flip-v {
+        transform: scale(1, -1);
+    }
+
+    &.flip-both {
+        transform: scale(-1, -1);
+    }
+
+    // Spin
+    &.spin {
+        animation: icon-spin $icon-spin-speed infinite linear;
+    }
+
+}
+
+// Spin animation
+@keyframes icon-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+// Reset filter
+:root {
+    .rotate90, .rotate180, .rotate270,
+    .flip-h, .flip-v, .flip-both {
+        filter: none;
+    }
+}
+
+// Icon packs
+@import "~@/assets/scss/core/icons/md";

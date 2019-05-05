@@ -1,0 +1,123 @@
+//-----------------------------------------------------------------
+// Conditions variables
+//-----------------------------------------------------------------
+$conditions: (
+
+    // Buttons
+    button: (
+        colors:         true,
+        hover:          false,
+        socials:        false,
+        icons:          false,
+        labeled:        false,
+        gradient:       false,
+        alt:            false,
+        inverted:       true,
+        loader:         true,
+        xs:             false,
+        sm:             false,
+        lg:             false,
+        xlg:            false,
+        hover-effects:  false,
+    ),
+
+    // Form
+    form: (
+        colors:         true,
+        socials:        true,
+        xs:             false,
+        sm:             false,
+        lg:             false,
+        select:         false,
+        checkbox:       true,
+        radio:          false,
+        switch:         false,
+        alt:            false,
+        field:          true,
+        required:       false,
+        addon:          false,
+        action:         false,
+        icon:           true,
+        labeled:        false,
+        validation:     true,
+    ),
+
+    // Alert
+    alert: (
+        icons:          false,
+        colors:         true,
+        alt:            false,
+        fill:           false,
+        sm:             false,
+        lg:             false,
+    ),
+
+    // Tabs
+    tab: (
+        colors:         true,
+    ),
+
+    // Tables
+    table: (
+        colors:         true,
+        bg:             true,
+        borderd:        true,
+        striped:        true,
+    ),
+
+    // Tiles
+    tile: (
+        colors:         true,
+        alt:            true,
+        icons:          true,
+        vertical:       true,
+    ),
+
+    // Tooltip
+    tooltip: (
+        colors:         true,
+    ),
+
+    // Panel
+    panel: (
+        heading:        true,
+        colors:         false,
+        bar:            false,
+        fill:           false,
+        sm:             false,
+        lg:             false,
+    ),
+
+    // Progress
+    progress: (
+        colors:         false,
+    ),
+
+    // Label
+    label: (
+        colors:         true,
+        icons:          false,
+        labeled:        false,
+        alt:            false,
+        inverted:       false,
+        xs:             false,
+        sm:             false,
+        lg:             false,
+    ),
+
+    // Divider
+    divider: (
+        hr:             true,
+        divider:        false,
+        colors:         true,
+        title:          false,
+    )
+
+);
+
+//------------------------------------------------------------
+// Check if condition is activated
+//------------------------------------------------------------
+@function is-active($type, $key) {
+    @return map-deep-get($conditions, $type, $key);
+}
