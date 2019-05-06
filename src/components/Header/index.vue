@@ -1,6 +1,12 @@
 <template>
     <header id="header">
-        header
+        <div class="logo">
+            <img src="@/assets/logo.png" alt="">
+        </div>
+
+        <div class="mobile-nav">
+            <i class="icon md-menu"></i>
+        </div>
     </header>
 </template>
 

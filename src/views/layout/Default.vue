@@ -1,6 +1,6 @@
 <template>
     <div class="main-wrapper">
-        <n-loading/>
+        <n-loading v-if="false"/>
         <n-header />
         <n-sidebar />
 
