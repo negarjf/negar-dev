@@ -2,10 +2,13 @@
     <div class="main-wrapper">
         <n-loading v-if="false"/>
         <n-header />
-        <n-sidebar />
 
-        <div id="main-content">
-            <slot></slot>
+        <div class="vertical-body">
+            <n-sidebar />
+
+            <div id="main-content">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
