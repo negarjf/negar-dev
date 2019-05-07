@@ -1,0 +1,648 @@
+@if( $load-icon-yi == true ) {
+
+    /*-----------------------------------------------------------------
+    - Icons: Brands
+    -----------------------------------------------------------------*/
+    // Load font and set font-family
+    @include font-family('yi');
+
+    // All icons
+    .yi-shopping-cart:before {
+        content: "\e95c";
+    }
+    .yi-home:before {
+        content: "\e943";
+    }
+    .yi-phone:before {
+        content: "\e942";
+    }
+    .yi-location:before {
+        content: "\e947";
+    }
+    .yi-map:before {
+        content: "\e94b";
+    }
+    .yi-map-light:before {
+        content: "\e94c";
+    }
+    .yi-bubble:before {
+        content: "\e96b";
+    }
+    .yi-spinner:before {
+        content: "\e981";
+    }
+    .yi-gear:before {
+        content: "\e994";
+    }
+    .yi-menu:before {
+        content: "\e9bd";
+    }
+    .yi-plus:before {
+        content: "\ea0a";
+    }
+    .yi-minus:before {
+        content: "\ea0b";
+    }
+    .yi-times:before {
+        content: "\ea0f";
+    }
+    .yi-check:before {
+        content: "\ea10";
+    }
+    .yi-google:before {
+        content: "\ea88";
+    }
+    .yi-googleplus:before {
+        content: "\ea8c";
+    }
+    .yi-facebook:before {
+        content: "\ea91";
+    }
+    .yi-instagram:before {
+        content: "\ea92";
+    }
+    .yi-whatsapp:before {
+        content: "\ea93";
+    }
+    .yi-spotify:before {
+        content: "\ea94";
+    }
+    .yi-telegram:before {
+        content: "\ea95";
+    }
+    .yi-twitter:before {
+        content: "\ea96";
+    }
+    .yi-vine:before {
+        content: "\ea97";
+    }
+    .yi-rss:before {
+        content: "\ea9c";
+    }
+    .yi-youtube:before {
+        content: "\ea9d";
+    }
+    .yi-flickr:before {
+        content: "\eaa4";
+    }
+    .yi-flickr-square:before {
+        content: "\eaa5";
+    }
+    .yi-dribbble:before {
+        content: "\eaa7";
+    }
+    .yi-behance:before {
+        content: "\eaa8";
+    }
+    .yi-behance-square:before {
+        content: "\eaa9";
+    }
+    .yi-github:before {
+        content: "\eab0";
+    }
+    .yi-wordpress:before {
+        content: "\eab4";
+    }
+    .yi-blogger:before {
+        content: "\eab8";
+    }
+    .yi-tumblr:before {
+        content: "\eab9";
+    }
+    .yi-tumblr-square:before {
+        content: "\eaba";
+    }
+    .yi-skype:before {
+        content: "\eac5";
+    }
+    .yi-linkedin-square:before {
+        content: "\eac9";
+    }
+    .yi-linkedin:before {
+        content: "\eaca";
+    }
+    .yi-lastfm:before {
+        content: "\eacb";
+    }
+    .yi-stackoverflow:before {
+        content: "\ead0";
+    }
+    .yi-pinterest:before {
+        content: "\ead1";
+    }
+    .yi-foursquare:before {
+        content: "\ead6";
+    }
+    .yi-paypal:before {
+        content: "\ead8";
+    }
+    .yi-codepen:before {
+        content: "\eae8";
+    }
+    .yi-user-light:before {
+        content: "\e95b";
+    }
+    .yi-gear-light:before {
+        content: "\e95d";
+    }
+    .yi-shopping-cart-light:before {
+        content: "\e95e";
+    }
+    .yi-house-light:before {
+        content: "\e91f";
+    }
+    .yi-chevron-left-light:before {
+        content: "\e94d";
+    }
+    .yi-chevron-down-light:before {
+        content: "\e94e";
+    }
+    .yi-arrow-left-light:before {
+        content: "\e950";
+    }
+    .yi-chevron-right-light:before {
+        content: "\e952";
+    }
+    .yi-arrow-right-light:before {
+        content: "\e953";
+    }
+    .yi-chevron-up-light:before {
+        content: "\e954";
+    }
+    .yi-500px-color:before {
+        content: "\e900";
+        color: #0099e5;
+    }
+    .yi-applemusic-color:before {
+        content: "\e901";
+    }
+    .yi-behance-color:before {
+        content: "\e902";
+        color: #1769ff;
+    }
+    .yi-blogger-color:before {
+        content: "\e903";
+        color: #ff5722;
+    }
+    .yi-codepen-color:before {
+        content: "\e904";
+    }
+    .yi-dribbble-color:before {
+        content: "\e905";
+        color: #ea4c89;
+    }
+    .yi-facebook-color:before {
+        content: "\e906";
+        color: #3b5998;
+    }
+    .yi-flickr-color:before {
+        content: "\e907";
+        color: #0063dc;
+    }
+    .yi-foursquare-color:before {
+        content: "\e908";
+        color: #f94877;
+    }
+    .yi-git-color:before {
+        content: "\e909";
+        color: #f05032;
+    }
+    .yi-github-color:before {
+        content: "\e90a";
+    }
+    .yi-gitlab-color:before {
+        content: "\e90b";
+        color: #e24329;
+    }
+    .yi-gmail-color:before {
+        content: "\e90c";
+        color: #d14836;
+    }
+    .yi-goodreads-color:before {
+        content: "\e90d";
+        color: #630;
+    }
+    .yi-google-color:before {
+        content: "\e90e";
+        color: #4285f4;
+    }
+    .yi-googleallo-color:before {
+        content: "\e90f";
+        color: #ecb842;
+    }
+    .yi-hangouts-color:before {
+        content: "\e910";
+        color: #0c9d58;
+    }
+    .yi-googleplay-color:before {
+        content: "\e911";
+        color: #607d8b;
+    }
+    .yi-googleplus-color:before {
+        content: "\e912";
+        color: #dc4e41;
+    }
+    .yi-gravatar-color:before {
+        content: "\e913";
+        color: #1e8cbe;
+    }
+    .yi-imdb-color:before {
+        content: "\e914";
+        color: #e6b91e;
+    }
+    .yi-instagram-color:before {
+        content: "\e915";
+        color: #e4405f;
+    }
+    .yi-lastfm-color:before {
+        content: "\e916";
+        color: #d51007;
+    }
+    .yi-linkedin-color:before {
+        content: "\e917";
+        color: #0077b5;
+    }
+    .yi-medium-color:before {
+        content: "\e918";
+    }
+    .yi-messenger-color:before {
+        content: "\e919";
+        color: #0084ff;
+    }
+    .yi-paypal-color:before {
+        content: "\e91a";
+        color: #00457c;
+    }
+    .yi-pinterest-color:before {
+        content: "\e91b";
+        color: #bd081c;
+    }
+    .yi-quora-color:before {
+        content: "\e91c";
+        color: #b92b27;
+    }
+    .yi-reddit-color:before {
+        content: "\e91d";
+        color: #ff4500;
+    }
+    .yi-skype-color:before {
+        content: "\e91e";
+        color: #00aff0;
+    }
+    .yi-soundcloud-color:before {
+        content: "\e920";
+        color: #f30;
+    }
+    .yi-spotify-color:before {
+        content: "\e921";
+        color: #1ed760;
+    }
+    .yi-stackexchange-color:before {
+        content: "\e922";
+        color: #1e5397;
+    }
+    .yi-stackoverflow-color:before {
+        content: "\e923";
+        color: #fe7a16;
+    }
+    .yi-telegram-color:before {
+        content: "\e924";
+        color: #2ca5e0;
+    }
+    .yi-tumblr-color:before {
+        content: "\e925";
+        color: #36465d;
+    }
+    .yi-twitter-color:before {
+        content: "\e926";
+        color: #1da1f2;
+    }
+    .yi-unsplash-color:before {
+        content: "\e92c";
+    }
+    .yi-viber-color:before {
+        content: "\e927";
+        color: #665cac;
+    }
+    .yi-vimeo-color:before {
+        content: "\e928";
+        color: #1ab7ea;
+    }
+    .yi-vine-color:before {
+        content: "\e929";
+        color: #11b48a;
+    }
+    .yi-vuejs-color:before {
+        content: "\e92a";
+        color: #4fc08d;
+    }
+    .yi-wechat-color:before {
+        content: "\e92d";
+        color: #7bb32e;
+    }
+    .yi-whatsapp-color:before {
+        content: "\e92e";
+        color: #25d366;
+    }
+    .yi-wordpress-color:before {
+        content: "\e92f";
+        color: #21759b;
+    }
+    .yi-yahoo-color:before {
+        content: "\e930";
+        color: #409;
+    }
+    .yi-youtube-color:before {
+        content: "\e931";
+        color: #f00;
+    }
+    .yi-edit:before {
+        content: "\e959";
+    }
+    .yi-pencil:before {
+        content: "\e95a";
+    }
+    .yi-calendar:before {
+        content: "\e958";
+    }
+    .yi-user-circle:before {
+        content: "\e955";
+    }
+    .yi-user:before {
+        content: "\e956";
+    }
+    .yi-search:before {
+        content: "\e941";
+    }
+    .yi-copy:before {
+        content: "\e14d";
+    }
+    .yi-cut:before {
+        content: "\e14e";
+    }
+    .yi-paste:before {
+        content: "\e14f";
+    }
+    .yi-trash:before {
+        content: "\e872";
+    }
+    .yi-double-check:before {
+        content: "\e877";
+    }
+    .yi-login:before {
+        content: "\e879";
+    }
+    .yi-heart:before {
+        content: "\e87d";
+    }
+    .yi-favorite_border:before {
+        content: "\e87e";
+    }
+    .yi-fingerprint:before {
+        content: "\e957";
+    }
+    .yi-star:before {
+        content: "\e838";
+    }
+    .yi-file:before {
+        content: "\e24d";
+    }
+    .yi-language:before {
+        content: "\e894";
+    }
+    .yi-mic:before {
+        content: "\e029";
+    }
+    .yi-mic-o:before {
+        content: "\e02a";
+    }
+    .yi-more:before {
+        content: "\e5d4";
+    }
+    .yi-share:before {
+        content: "\e80d";
+    }
+    .yi-star_border:before {
+        content: "\e83a";
+    }
+    .yi-star_half:before {
+        content: "\e839";
+    }
+    .yi-tune:before {
+        content: "\e429";
+    }
+    .yi-wifi:before {
+        content: "\e63e";
+    }
+    .yi-arrow-down-circle:before {
+        content: "\e949";
+    }
+    .yi-arrow-left:before {
+        content: "\e932";
+    }
+    .yi-arrow-left-circle:before {
+        content: "\e94a";
+    }
+    .yi-arrow-right:before {
+        content: "\e933";
+    }
+    .yi-arrow-right-circle:before {
+        content: "\e94f";
+    }
+    .yi-arrow-up-circle:before {
+        content: "\e951";
+    }
+    .yi-chevron-down:before {
+        content: "\e934";
+    }
+    .yi-chevron-left:before {
+        content: "\e935";
+    }
+    .yi-chevron-right:before {
+        content: "\e936";
+    }
+    .yi-chevron-up:before {
+        content: "\e937";
+    }
+    .yi-chevrons-down:before {
+        content: "\e938";
+    }
+    .yi-chevrons-left:before {
+        content: "\e939";
+    }
+    .yi-chevrons-right:before {
+        content: "\e93a";
+    }
+    .yi-chevrons-up:before {
+        content: "\e93b";
+    }
+    .yi-search-light:before {
+        content: "\e92b";
+    }
+    .yi-times-light:before {
+        content: "\e93c";
+    }
+    .yi-minus-light:before {
+        content: "\e93d";
+    }
+    .yi-plus-light:before {
+        content: "\e93e";
+    }
+    .yi-check-light:before {
+        content: "\e93f";
+    }
+    .yi-menu-light:before {
+        content: "\e940";
+    }
+    .yi-clock:before {
+        content: "\e8b5";
+    }
+    .yi-carrot-down:before {
+        content: "\e5c5";
+    }
+    .yi-carrot-up:before {
+        content: "\e5c7";
+    }
+    .yi-attach-file:before {
+        content: "\e226";
+    }
+    .yi-bookmark:before {
+        content: "\e8e6";
+    }
+    .yi-bookmark-o:before {
+        content: "\e8e7";
+    }
+    .yi-copy:before {
+        content: "\e14d";
+    }
+    .yi-cut:before {
+        content: "\e14e";
+    }
+    .yi-paste:before {
+        content: "\e14f";
+    }
+    .yi-trash:before {
+        content: "\e872";
+    }
+    .yi-double-check:before {
+        content: "\e877";
+    }
+    .yi-login:before {
+        content: "\e879";
+    }
+    .yi-heart:before {
+        content: "\e87d";
+    }
+    .yi-favorite_border:before {
+        content: "\e87e";
+    }
+    .yi-fingerprint:before {
+        content: "\e957";
+    }
+    .yi-star:before {
+        content: "\e838";
+    }
+    .yi-file:before {
+        content: "\e24d";
+    }
+    .yi-language:before {
+        content: "\e894";
+    }
+    .yi-mic:before {
+        content: "\e029";
+    }
+    .yi-mic-o:before {
+        content: "\e02a";
+    }
+    .yi-more:before {
+        content: "\e5d4";
+    }
+    .yi-share:before {
+        content: "\e80d";
+    }
+    .yi-star_border:before {
+        content: "\e83a";
+    }
+    .yi-star_half:before {
+        content: "\e839";
+    }
+    .yi-tune:before {
+        content: "\e429";
+    }
+    .yi-wifi:before {
+        content: "\e63e";
+    }
+    .yi-arrow-down-circle:before {
+        content: "\e949";
+    }
+    .yi-arrow-left:before {
+        content: "\e932";
+    }
+    .yi-arrow-left-circle:before {
+        content: "\e94a";
+    }
+    .yi-arrow-right:before {
+        content: "\e933";
+    }
+    .yi-arrow-right-circle:before {
+        content: "\e94f";
+    }
+    .yi-arrow-up-circle:before {
+        content: "\e951";
+    }
+    .yi-chevron-down:before {
+        content: "\e934";
+    }
+    .yi-chevron-left:before {
+        content: "\e935";
+    }
+    .yi-chevron-right:before {
+        content: "\e936";
+    }
+    .yi-chevron-up:before {
+        content: "\e937";
+    }
+    .yi-chevrons-down:before {
+        content: "\e938";
+    }
+    .yi-chevrons-left:before {
+        content: "\e939";
+    }
+    .yi-chevrons-right:before {
+        content: "\e93a";
+    }
+    .yi-chevrons-up:before {
+        content: "\e93b";
+    }
+    .yi-search-light:before {
+        content: "\e92b";
+    }
+    .yi-times-light:before {
+        content: "\e93c";
+    }
+    .yi-minus-light:before {
+        content: "\e93d";
+    }
+    .yi-plus-light:before {
+        content: "\e93e";
+    }
+    .yi-check-light:before {
+        content: "\e93f";
+    }
+    .yi-menu-light:before {
+        content: "\e940";
+    }
+    .yi-fax:before {
+        content: "\e944";
+    }
+    .yi-mail-envelope:before {
+        content: "\e945";
+    }
+    .yi-mail-envelope-light:before {
+        content: "\e946";
+    }
+    .yi-pin-light:before {
+        content: "\e948";
+    }
+
+}
