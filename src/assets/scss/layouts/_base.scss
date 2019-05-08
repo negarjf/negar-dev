@@ -53,6 +53,8 @@
         width: 255px;
         transform: translateX(-100%);
         visibility: hidden;
+        display: flex;
+        flex-direction: column;
 
         @include bp(md){
             position: static;
@@ -79,6 +81,9 @@
 
         .sidebar-nav{
             margin: 40px 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
 
             ul.menu{
                 padding: 0;
@@ -97,15 +102,30 @@
                         width: auto;
                         line-height: 1.1;
                         padding: 0 2px 0 0;
-                        transition: all 0.35s ease;
+                        transition: margin-left 0.35s ease;
+
+                        .icon{
+                            margin-right: 5px;
+                            transition: color 0s;
+                        }
 
                         &:hover{
                             margin-left: 10px;
+                            color: $color-secondary;
                         }
                     }
 
                 }
             }
+        }
+
+        .credit{
+            padding-left: 45px;
+            text-transform: none;
+            font-size: 14px;
+            line-height: 1.57;
+            color: $color-gray-lightest;
+            margin-top: 35px;
         }
     }
 
