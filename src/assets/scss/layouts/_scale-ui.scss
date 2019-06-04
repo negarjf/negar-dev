@@ -1,0 +1,235 @@
+/* ----------------------------------------------------------------------------------------
+* Scale UI
+* ----------------------------------------------------------------------------------------*/
+
+// Variables
+$color_pink: #E3397A;
+$color_blue: #22BBDD;
+$color_gray: #35464a;
+
+$title_font_size: 120;
+$title_font_size_sm: 100;
+$subtitle_font_size: 24;
+
+$subtitle_pos: translate(100%, -$subtitle_font_size + px);
+
+$bg_transition: 2;
+$bg_delay: 1;
+
+$subtitle_duration: 4;
+$subtitle_delay: $bg_transition + $bg_delay;
+
+$social_duration: 1;
+$social_delay: $subtitle_delay + $subtitle_duration;
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: $color_pink;
+  transition: background $bg_transition+s $bg_delay+s ease-out;
+
+  &.animate {
+    background: #fff;
+
+    .title {
+      .last_name {
+
+        animation: scaling $subtitle_duration+s;
+        animation-delay: $subtitle_delay + s;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    .socials {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-direction: column;
+  text-align: center;
+  font-family: Raleway, sans-serif;
+  font-size: 40px;
+  position: relative;
+  @media(max-width: 450px) {
+    transform: scale(0.8);
+  }
+}
+
+.title .name {
+  font-weight: 700;
+  font-size: $title_font_size + px;
+  color: $color_pink;
+}
+
+.title .last_name {
+  display: inline-flex;
+  font-size: $subtitle_font_size + px;
+  line-height: $subtitle_font_size + px;
+  color: #333;
+  font-weight: 600;
+  transform: $subtitle_pos;
+  padding: 5px;
+  border: 2px solid $color_blue;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s $subtitle_delay+s;
+}
+
+.last_name {
+  position: relative;
+  background-color: #fff;
+  z-index: 1;
+
+  .points {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-weight: 400;
+
+    [class^="point_"] {
+      display: inline-flex;
+      width: 6px;
+      height: 6px;
+      border: 2px solid $color_blue;
+      background: #fff;
+      position: absolute;
+    }
+
+    [class^="point_top_"] {
+      top: -5px;
+    }
+
+    [class^="point_bottom_"] {
+      bottom: -5px;
+    }
+
+    [class$="_left"] {
+      left: -5px;
+    }
+
+    [class$="_right"] {
+      right: -5px;
+    }
+
+    &:after {
+      content: attr(data-size);
+      font-family: monospace;
+      font-size: 13px;
+      color: $color_blue;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      display: inline-flex;
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: -1;
+  }
+
+  &:after {
+    content: '';
+    border: 1px dashed $color_blue;
+    position: absolute;
+    width: 104vw;
+    height: 104vh;
+    display: flex;
+    right: 100%;
+    bottom: 100%;
+    transform: translate(65px, 17px);
+    z-index: -2;
+  }
+
+}
+
+
+.socials {
+  display: flex;
+  align-self: flex-end;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 0 50px;
+  transform: translateY(200%);
+  opacity: 0;
+  transition: all $social_duration+s $social_delay+s ease-out;
+
+  .social {
+    display: inline-flex;
+    align-items: center;
+    margin: 5px 15px;
+    @media(max-width: 450px) {
+      margin: 5px 8px;
+    }
+
+    .icon {
+      color: $color_gray;
+      transition: all 0.35s;
+      font-size: 1.8rem;
+
+      @media(max-width: 450px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &:hover {
+      .icon {
+        color: $color_pink;
+      }
+    }
+  }
+}
+
+
+@keyframes scaling {
+  0% {
+    transform: scale(1.5) translate(-300%, 50%);
+  }
+
+  50% {
+    transform: scale(1.5) $subtitle_pos;
+  }
+
+  55% {
+
+    transform: scale(1.5) $subtitle_pos;
+  }
+
+  100% {
+    transform: scale(1) $subtitle_pos;
+  }
+}
+
+
+@keyframes fade-bg {
+  from {
+    background: $color_pink;
+  }
+
+  to {
+    background: #fff;
+  }
+}
