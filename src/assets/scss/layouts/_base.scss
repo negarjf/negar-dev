@@ -1,0 +1,138 @@
+/* ----------------------------------------------------------------------------------------
+* Layout
+* ----------------------------------------------------------------------------------------*/
+
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 45px;
+    position: relative;
+    z-index: 999;
+    background: $bg-primary;
+
+    @include bp(md){
+        display: none;
+    }
+
+    .logo{
+        height: 60px;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .mobile-nav{
+        position: absolute;
+        left: 20px;
+
+        i{
+            font-size: 2.5rem;
+        }
+    }
+
+}
+
+
+.vertical-body{
+    display: flex;
+    min-height: 100vh;
+
+    #sidebar{
+        background: $bg-primary;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        padding: 50px 0;
+        box-shadow: $box-shadow-sm;
+        width: 255px;
+        transform: translateX(-100%);
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+
+        @include bp(md){
+            position: static;
+            transform: none;
+            visibility: visible;
+        }
+
+        .logo{
+            height: 60px;
+            display: none;
+
+            @include bp(md){
+                position: static;
+                transform: none;
+                display: block;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        .sidebar-nav{
+            margin: 40px 0;
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            ul.menu{
+                padding: 0;
+                list-style-type: none;
+
+                li{
+                    padding: 13px 20px 13px 45px;
+
+                    a{
+                        text-align: left;
+                        font-size: 15px;
+                        font-weight: 800;
+                        display: inline-block;
+                        letter-spacing: .2px;
+                        margin: 0;
+                        width: auto;
+                        line-height: 1.1;
+                        padding: 0 2px 0 0;
+                        transition: margin-left 0.35s ease;
+
+                        .icon{
+                            margin-right: 5px;
+                            transition: color 0s;
+                        }
+
+                        &:hover{
+                            margin-left: 10px;
+                            color: $color-secondary;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .credit{
+            padding-left: 45px;
+            text-transform: none;
+            font-size: 14px;
+            line-height: 1.57;
+            color: $color-gray-lightest;
+            margin-top: 35px;
+        }
+    }
+
+    #main-content{
+        background: $color-purple;
+        flex: 1;
+    }
+}
+
+
