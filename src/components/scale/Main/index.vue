@@ -1,5 +1,5 @@
 <template>
-<div class="main animate">
+<div class="main" :class="mainClass">
     <div class="title">
         <div class="name">Negar</div>
         <div class="last_name">
@@ -25,6 +25,19 @@
 
         components: {
             YSocials,
+        },
+
+        data() {
+            return {
+                mainClass: "",
+            };
+        },
+
+        mounted() {
+
+            setTimeout(() => {
+                this.mainClass = "animate";
+            }, 500);
         }
     };
 </script>
