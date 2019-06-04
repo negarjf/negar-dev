@@ -22,6 +22,10 @@ $subtitle_delay: $bg_transition + $bg_delay;
 $social_duration: 1;
 $social_delay: $subtitle_delay + $subtitle_duration;
 
+body{
+  background: $color_pink;
+}
+
 .main {
   width: 100vw;
   height: 100vh;
@@ -30,11 +34,13 @@ $social_delay: $subtitle_delay + $subtitle_duration;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: $color_pink;
-  transition: background $bg_transition+s $bg_delay+s ease-out;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23b8d0d6' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0;
+  transition: opacity $bg_transition+s $bg_delay+s;
 
   &.animate {
-    background: #fff;
+    opacity: 1;
 
     .title {
       .last_name {
@@ -71,6 +77,7 @@ $social_delay: $subtitle_delay + $subtitle_duration;
 .title .name {
   font-weight: 700;
   font-size: $title_font_size + px;
+  line-height: initial;
   color: $color_pink;
 }
 
@@ -148,6 +155,7 @@ $social_delay: $subtitle_delay + $subtitle_duration;
     left: 0;
     right: 0;
     background: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23b8d0d6' fill-opacity='0.4'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     z-index: -1;
   }
 
